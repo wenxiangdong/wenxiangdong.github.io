@@ -1,4 +1,5 @@
 import * as React from "react";
+import {CSSProperties} from "react";
 const FONT_SIZE_NORMAL = "16px";
 
 export const PRIMARY_COLOR = "#2d8cf0";
@@ -17,3 +18,9 @@ export const outlineButtonStyles: (options?:{borderColor: string, textColor: str
     border: `${borderColor} 1px solid`,
     color: textColor,
 });
+
+export const whiteSpaceStyles = ({height = 16} = {}) => ({
+    height: `${height}px`,
+    width: "100%",
+    backgroundColor: "transparent",
+} as CSSProperties);
