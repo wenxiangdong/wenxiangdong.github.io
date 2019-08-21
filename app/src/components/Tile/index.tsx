@@ -43,7 +43,6 @@ const Tile: React.FC<IProps> = ({
         right: PADDING,
         bottom: PADDING
     };
-
     return (
         <div
             className="Tile__wrapper"

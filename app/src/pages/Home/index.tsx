@@ -35,11 +35,11 @@ function Home() {
     return (
         <div style={{...pageStyles}}>
             <SectionTitle title={"个人信息"} style={sectionTitleStyles} />
-            <div style={{...flexSectionStyles}}>
+            <div style={flexSectionStyles}>
                 <UserInfoCard />
             </div>
             <SectionTitle title={"社交联系"} style={sectionTitleStyles} />
-            <div style={{...flexSectionStyles}}>
+            <div style={flexSectionStyles}>
                 {
                     contactInfoList.map((item) => (
                         <Tile
@@ -47,8 +47,23 @@ function Home() {
                             title={item.type}
                             note={item.value}
                             icon={<Icon type={item.icon} />}
-                           onClick={() => handleJumpToOtherWebsite(item.link)}
+                            onClick={() => handleJumpToOtherWebsite(item.link)}
                         />
+                    ))
+                }
+            </div>
+            <SectionTitle title={"我的应用"} style={sectionTitleStyles} />
+            <div style={flexSectionStyles}>
+                <Tile title={"Mr Listen"} style={{cursor: "auto"}}>
+                    <ul>
+                        <li><a onClick={() => console.log("click")}>github</a></li>
+                        <li>应用地址</li>
+                        <li>二维码</li>
+                    </ul>
+                </Tile>
+                {
+                    Array(10).fill("").map(() => (
+                        <Tile />
                     ))
                 }
             </div>
