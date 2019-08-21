@@ -1,7 +1,7 @@
 import React from "react";
-import Icon, {ICON_SIZE} from "./type";
+import IconType, {ICON_SIZE} from "./type";
 
-const OutlookIcon: Icon = (
+const OutlookIcon: IconType = (
     {
         color = "#0071C5",
         size = ICON_SIZE

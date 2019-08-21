@@ -1,7 +1,7 @@
 import React from "react";
-import Icon, {ICON_SIZE} from "./type";
+import IconType, {ICON_SIZE} from "./type";
 
-const GithubIcon: Icon = (
+const GithubIcon: IconType = (
     {size = ICON_SIZE, color = "#000"}
 ) => {
     // @ts-ignore

@@ -1,6 +1,6 @@
-import Icon, {ICON_SIZE} from "./type";
+import IconType, {ICON_SIZE} from "./type";
 import React from "react";
-const WechatIcon: Icon = ({size = ICON_SIZE, color = "#66BC54"}) => {
+const WechatIcon: IconType = ({size = ICON_SIZE, color = "#66BC54"}) => {
     // @ts-ignore
     return(<svg t="1566372212309" className="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
              p-id="3579" width={size} height={size}>

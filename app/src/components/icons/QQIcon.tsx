@@ -1,7 +1,7 @@
-import Icon, {ICON_SIZE} from "./type";
+import IconType, {ICON_SIZE} from "./type";
 import React from "react";
 
-const QQIcon: Icon = ({size = ICON_SIZE, color = "#0EC3FF"} = {}) => {
+const QQIcon: IconType = ({size = ICON_SIZE, color = "#0EC3FF"} = {}) => {
     // @ts-ignore
     return (<svg t="1566372617364" className="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
              p-id="4307" width={size} height={size}>

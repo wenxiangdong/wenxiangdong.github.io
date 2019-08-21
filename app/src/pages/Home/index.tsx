@@ -1,30 +1,31 @@
 import React, {CSSProperties} from "react";
 import Tile from "../../components/Tile";
-import SapIcon from "../../components/icons/SapIcon";
 import WechatIcon from "../../components/icons/WechatIcon";
 import SectionTitle from "../../components/SectionTitle";
 import GithubIcon from "../../components/icons/GithubIcon";
 import OutlookIcon from "../../components/icons/OutlookIcon";
 import UserInfoCard from "../../components/UserInfoCard";
+import Icon from "../../components/icons/Icon";
+import {useContactInfo} from "../../hooks/use-contact-info";
 
-const SOCIAL_LIST = [
-    {
-        name: "GitHub",
-        value: "wenxiangdong",
-        icon: GithubIcon,
-        link: "https://github.com/wenxiangdong"
-    },
-    {
-        name: "微信",
-        value: "ericlpl",
-        icon: WechatIcon,
-    },
-    {
-        name: "个人邮箱",
-        value: "wenxiangdong@outlook.com",
-        icon: OutlookIcon,
-    },
-    ];
+// const SOCIAL_LIST = [
+//     {
+//         name: "GitHub",
+//         value: "wenxiangdong",
+//         icon: GithubIcon,
+//         link: "https://github.com/wenxiangdong"
+//     },
+//     {
+//         name: "微信",
+//         value: "ericlpl",
+//         icon: WechatIcon,
+//     },
+//     {
+//         name: "个人邮箱",
+//         value: "wenxiangdong@outlook.com",
+//         icon: OutlookIcon,
+//     },
+//     ];
 function Home() {
     // handlers
     const handleJumpToOtherWebsite = (url: string | undefined) => {
@@ -40,6 +41,12 @@ function Home() {
         minHeight: "100vh",
         boxSizing: "border-box",
     };
+
+    // hooks
+    const {contactInfoList} = useContactInfo();
+
+
+
     return (
         <div style={{...pageStyles}}>
             <SectionTitle title={"个人信息"} />
@@ -49,13 +56,13 @@ function Home() {
             <SectionTitle title={"社交联系"} />
             <div style={{...flexSectionStyles}}>
                 {
-                    SOCIAL_LIST.map((item) => (
+                    contactInfoList.map((item) => (
                         <Tile
-                            key={item.name}
-                            title={item.name}
+                            key={item.type}
+                            title={item.type}
                             note={item.value}
-                            icon={React.createElement(item.icon)}
-                            onClick={() => handleJumpToOtherWebsite(item.link)}
+                            icon={<Icon type={item.icon} />}
+                           onClick={() => handleJumpToOtherWebsite(item.link)}
                         />
                     ))
                 }

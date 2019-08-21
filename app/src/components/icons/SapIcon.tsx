@@ -1,7 +1,7 @@
 import * as React from "react";
-import Icon, {ICON_SIZE} from "./type";
+import IconType, {ICON_SIZE} from "./type";
 
-const SapIcon: Icon = (
+const SapIcon: IconType = (
     {size = ICON_SIZE, color="#008CDB"}
 ) => {
   // @ts-ignore

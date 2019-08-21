@@ -1,9 +1,31 @@
-import React from "react";
-import userInfo from "../../assets/json/userinfo.json";
+import React, {useState, useEffect} from "react";
 import logo from "../../logo.jpg";
 import {cardStyles, HELP_TEXT_COLOR, whiteSpaceStyles} from "../../styles";
+import useUserInfo from "../../hooks/use-user-info";
 
 const UserInfoCard: React.FC<{style?: React.CSSProperties}> = ({style = {}} = {}) => {
+    // styles
+    const wrapperStyles: React.CSSProperties = {
+        padding: "16px",
+        width: "500px",
+        display: "flex",
+        alignItems: "center"
+    };
+    const titleStyles: React.CSSProperties = {
+        fontSize: "24px"
+    };
+    const imageStyles: React.CSSProperties = {
+        width: "150px",
+        height: "150px",
+        borderRadius: "50%"
+    };
+    const textSectionStyles: React.CSSProperties = {
+      flex: 1,
+      padding: "16px",
+        textAlign: "right"
+    };
+
+    const {userInfo} = useUserInfo();
     const infoList = [
         {
             title: "真实姓名",
@@ -30,26 +52,6 @@ const UserInfoCard: React.FC<{style?: React.CSSProperties}> = ({style = {}} = {}
             value: userInfo.company
         },
     ];
-    // styles
-    const wrapperStyles: React.CSSProperties = {
-        padding: "16px",
-        width: "500px",
-        display: "flex",
-        alignItems: "center"
-    };
-    const titleStyles: React.CSSProperties = {
-        fontSize: "24px"
-    };
-    const imageStyles: React.CSSProperties = {
-        width: "150px",
-        height: "150px",
-        borderRadius: "50%"
-    };
-    const textSectionStyles: React.CSSProperties = {
-      flex: 1,
-      padding: "16px",
-        textAlign: "right"
-    };
 
     // inner components
     const Item: React.FC<{title: string, value: any}> = ({title, value}) => {
