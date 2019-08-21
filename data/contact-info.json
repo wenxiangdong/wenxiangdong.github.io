@@ -14,5 +14,10 @@
     "type": "个人邮箱",
     "value": "wenxiangdong@outlook.com",
     "icon": "Outlook"
+  },
+  {
+    "type": "Aloha",
+    "value": "文向东",
+    "icon": "Aloha"
   }
 ]
