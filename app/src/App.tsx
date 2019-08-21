@@ -6,6 +6,7 @@ import {whiteSpaceStyles} from "./styles";
 import BreathingButton from "./components/BreathingButton";
 import {HashRouter, Switch, Route, Link} from "react-router-dom";
 import Home from "./pages/Home";
+import Dev from "./pages/Dev";
 
 const Welcome: React.FC = () => {
   const typing = useTypingEffect(["我 有 痛 苦 和 渴 望"], {
@@ -32,6 +33,7 @@ const App: React.FC = () => {
       <HashRouter>
         <Switch>
           <Route path="/home" component={Home} />
+          <Route path="/dev" component={Dev} />
           <Route component={Welcome}/>
         </Switch>
       </HashRouter>

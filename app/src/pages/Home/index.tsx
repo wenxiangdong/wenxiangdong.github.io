@@ -1,31 +1,11 @@
 import React, {CSSProperties} from "react";
 import Tile from "../../components/Tile";
-import WechatIcon from "../../components/icons/WechatIcon";
 import SectionTitle from "../../components/SectionTitle";
-import GithubIcon from "../../components/icons/GithubIcon";
-import OutlookIcon from "../../components/icons/OutlookIcon";
 import UserInfoCard from "../../components/UserInfoCard";
 import Icon from "../../components/icons/Icon";
 import {useContactInfo} from "../../hooks/use-contact-info";
+import ShootingStars from "../../components/ShootingStars";
 
-// const SOCIAL_LIST = [
-//     {
-//         name: "GitHub",
-//         value: "wenxiangdong",
-//         icon: GithubIcon,
-//         link: "https://github.com/wenxiangdong"
-//     },
-//     {
-//         name: "微信",
-//         value: "ericlpl",
-//         icon: WechatIcon,
-//     },
-//     {
-//         name: "个人邮箱",
-//         value: "wenxiangdong@outlook.com",
-//         icon: OutlookIcon,
-//     },
-//     ];
 function Home() {
     // handlers
     const handleJumpToOtherWebsite = (url: string | undefined) => {
@@ -40,6 +20,11 @@ function Home() {
         width: "100vw",
         minHeight: "100vh",
         boxSizing: "border-box",
+        backgroundColor: "#ECF5FD66",
+        padding: "36px",
+    };
+    const sectionTitleStyles: CSSProperties = {
+        backgroundColor: "transparent"
     };
 
     // hooks
@@ -49,11 +34,11 @@ function Home() {
 
     return (
         <div style={{...pageStyles}}>
-            <SectionTitle title={"个人信息"} />
+            <SectionTitle title={"个人信息"} style={sectionTitleStyles} />
             <div style={{...flexSectionStyles}}>
                 <UserInfoCard />
             </div>
-            <SectionTitle title={"社交联系"} />
+            <SectionTitle title={"社交联系"} style={sectionTitleStyles} />
             <div style={{...flexSectionStyles}}>
                 {
                     contactInfoList.map((item) => (
@@ -67,6 +52,8 @@ function Home() {
                     ))
                 }
             </div>
+            {/*背景*/}
+            <ShootingStars style={{opacity: 0.8}}/>
         </div>
     );
 }

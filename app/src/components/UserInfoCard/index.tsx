@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React from "react";
 import logo from "../../logo.jpg";
 import {cardStyles, HELP_TEXT_COLOR, whiteSpaceStyles} from "../../styles";
 import useUserInfo from "../../hooks/use-user-info";
