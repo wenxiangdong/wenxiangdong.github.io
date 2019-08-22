@@ -29,7 +29,8 @@ const Tile: React.FC<IProps> = ({
         margin: "8px",
         padding: PADDING,
         wordBreak: "break-all",
-        wordWrap: "break-word"
+        wordWrap: "break-word",
+        overflowY: "auto",
     };
     const titleStyle: React.CSSProperties = {
         fontSize: "18px"

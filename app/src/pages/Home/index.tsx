@@ -5,6 +5,8 @@ import UserInfoCard from "../../components/UserInfoCard";
 import Icon from "../../components/icons/Icon";
 import {useContactInfo} from "../../hooks/use-contact-info";
 import ShootingStars from "../../components/ShootingStars";
+import Application from "../../components/Application";
+import {IApplication} from "../../hooks/use-application-info";
 
 function Home() {
     // handlers
@@ -54,13 +56,10 @@ function Home() {
             </div>
             <SectionTitle title={"我的应用"} style={sectionTitleStyles} />
             <div style={flexSectionStyles}>
-                <Tile title={"Mr Listen"} style={{cursor: "auto"}}>
-                    <ul>
-                        <li><a onClick={() => console.log("click")}>github</a></li>
-                        <li>应用地址</li>
-                        <li>二维码</li>
-                    </ul>
-                </Tile>
+                <Application app={
+                    {name: "程序", desc: "描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述".repeat(2),
+                    type: 0,
+                    } as IApplication} />
                 {
                     Array(10).fill("").map(() => (
                         <Tile />
