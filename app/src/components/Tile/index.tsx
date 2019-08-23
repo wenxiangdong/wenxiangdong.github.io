@@ -54,7 +54,9 @@ const Tile: React.FC<IProps> = ({
             </div>
             <div style={{...whiteSpaceStyles({height: 8})}}/>
             <div style={{...noteStyle}}>{note}</div>
-            {children}
+            <div style={{flex: "1"}}>
+                {children}
+            </div>
             <div style={{...iconStyle}}>
                 {icon}
             </div>

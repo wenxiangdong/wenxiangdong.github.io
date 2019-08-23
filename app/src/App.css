@@ -1,14 +1,22 @@
 .App {
   text-align: center;
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+  background-image: url("./bg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+  border-radius: 50%;
+  user-select: none;
 }
 
 .App-header {
-  background-color: #000;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
