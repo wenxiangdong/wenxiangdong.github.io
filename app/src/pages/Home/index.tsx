@@ -14,10 +14,10 @@ const app = {name: "程序", desc: "描述描述描述描述描述描述描述�
     sourceCodeUrl: "hhtt",
     qrCodeUrl: "https://gss2.bdstatic.com/9fo3dSag_xI4khGkpoWK1HF6hhy/baike/w%3D268%3Bg%3D0/sign=7e250e62399b033b2c88fbdc2df551ee/38dbb6fd5266d016a32b8d4e9a2bd40735fa35a1.jpg",
     cooperators: ["Eric", "Lucy", "Jane"],
-    appPreviewImages: [
-        "http://img3.imgtn.bdimg.com/it/u=4077384849,4007343454&fm=26&gp=0.jpg",
-        "https://gss2.bdstatic.com/9fo3dSag_xI4khGkpoWK1HF6hhy/baike/w%3D268%3Bg%3D0/sign=7e250e62399b033b2c88fbdc2df551ee/38dbb6fd5266d016a32b8d4e9a2bd40735fa35a1.jpg"
-    ]
+    // appPreviewImages: [
+    //     "http://img3.imgtn.bdimg.com/it/u=4077384849,4007343454&fm=26&gp=0.jpg",
+    //     "https://gss2.bdstatic.com/9fo3dSag_xI4khGkpoWK1HF6hhy/baike/w%3D268%3Bg%3D0/sign=7e250e62399b033b2c88fbdc2df551ee/38dbb6fd5266d016a32b8d4e9a2bd40735fa35a1.jpg"
+    // ]
 } as IApplication;
 
 function Home() {
@@ -67,7 +67,7 @@ function Home() {
                 }
             </div>
             <SectionTitle title={"我的应用"} style={sectionTitleStyles} />
-            <div style={flexSectionStyles}>
+            <div style={{...flexSectionStyles, display: "block"}}>
                 <Application app={app} />
                 <Application app={app} />
                 <Application app={app} />

@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "../../logo.jpg";
-import {cardStyles, HELP_TEXT_COLOR, whiteSpaceStyles} from "../../styles";
+import {cardStyles, HELP_TEXT_COLOR, PRIMARY_COLOR, whiteSpaceStyles} from "../../styles";
 import useUserInfo from "../../hooks/use-user-info";
 
 const UserInfoCard: React.FC<{style?: React.CSSProperties}> = ({style = {}} = {}) => {
@@ -51,14 +51,27 @@ const UserInfoCard: React.FC<{style?: React.CSSProperties}> = ({style = {}} = {}
             title: "公司",
             value: userInfo.company
         },
+        {
+            title: "简历",
+            value: userInfo.resume
+        }
     ];
 
     // inner components
-    const Item: React.FC<{title: string, value: any}> = ({title, value}) => {
+    const Item: React.FC<{title: string, value: string}> = ({title, value}) => {
+        const isLink = ["http://", "https://"].some(item => value && value.startsWith(item));
         return (
             <div>
                 <span style={{marginRight: "8px", color: HELP_TEXT_COLOR}}>{title}</span>
-                <span style={{}}>{value}</span>
+                {
+                    isLink
+                        ? <span><a
+                            style={{textDecoration: "none", color: PRIMARY_COLOR}}
+                            href={value}>
+                            链接
+                        </a></span>
+                        : <span>{value}</span>
+                }
             </div>
         );
     };
@@ -73,7 +86,9 @@ const UserInfoCard: React.FC<{style?: React.CSSProperties}> = ({style = {}} = {}
                 <div style={{...titleStyles}}>{userInfo.name}</div>
                 <div style={{...whiteSpaceStyles({height: 16})}}/>
                 {
-                    infoList.map((info) => (
+                    infoList
+                        .filter(info => !!info.value)
+                        .map((info) => (
                         <Item key={info.title} title={info.title} value={info.value}/>
                     ))
                 }

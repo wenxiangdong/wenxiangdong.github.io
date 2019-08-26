@@ -68,7 +68,7 @@ const Application: React.FC<IProps> = ({app, style = {}}) => {
                 </div>
             </Tile>
         );
-    }
+    };
 
     return (
         <div style={wrapperStyles}>
@@ -91,7 +91,7 @@ const Application: React.FC<IProps> = ({app, style = {}}) => {
                               }/>
                     }
                     {app.cooperators && app.cooperators.length
-                    && <InfoItem label={"合作者"} value={app.cooperators.join("，")} />}
+                        && <InfoItem label={"合作者"} value={app.cooperators.join("，")} />}
                 </div>
             </Tile>
             {

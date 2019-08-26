@@ -8,6 +8,7 @@ interface UserInfo {
     "company": string;
     "gender": string;
     "birthday": string;
+    resume: string;
 }
 export default function useUserInfo(): {userInfo: UserInfo, load: () => void} {
     const [userInfo, setUserInfo] = useState({} as UserInfo);
@@ -19,6 +20,7 @@ export default function useUserInfo(): {userInfo: UserInfo, load: () => void} {
             .getInstance()
             .request<UserInfo>({path: "/data/user-info.json"})
             .then(res => {
+                console.log("get user info", res);
                 setUserInfo({...res});
             })
             .catch(e => {
