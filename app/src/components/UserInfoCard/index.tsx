@@ -1,7 +1,7 @@
 import React from "react";
-import logo from "../../logo.jpg";
 import {cardStyles, HELP_TEXT_COLOR, PRIMARY_COLOR, whiteSpaceStyles} from "../../styles";
 import useUserInfo from "../../hooks/use-user-info";
+import ImageUtils from "../FullScreenImage";
 
 const UserInfoCard: React.FC<{style?: React.CSSProperties}> = ({style = {}} = {}) => {
     // styles
@@ -76,10 +76,11 @@ const UserInfoCard: React.FC<{style?: React.CSSProperties}> = ({style = {}} = {}
         );
     };
 
+    console.log(userInfo);
     return (
         <div style={{...cardStyles(), ...wrapperStyles, ...style}}>
             <div>
-                <img src={logo} style={{...imageStyles}}/>
+                <img src={userInfo.avatar} style={{...imageStyles}} onClick={() => ImageUtils.previewInFullScreen(userInfo.avatar)}/>
             </div>
             <div style={{width: "36px"}}/>
             <div style={{...textSectionStyles}}>

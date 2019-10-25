@@ -9,6 +9,7 @@ interface UserInfo {
     "gender": string;
     "birthday": string;
     resume: string;
+    avatar: string
 }
 export default function useUserInfo(): {userInfo: UserInfo, load: () => void} {
     const [userInfo, setUserInfo] = useState({} as UserInfo);
