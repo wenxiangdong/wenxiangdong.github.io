@@ -3,6 +3,7 @@
   width: 100vw;
   height: 100vh;
   box-sizing: border-box;
+  background-color: black;
   background-image: url("./bg.png");
   background-position: center;
   background-repeat: no-repeat;
