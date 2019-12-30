@@ -1,5 +1,5 @@
 query { 
-  repository (name: "hhhh", owner: "wenxiangdong") { 
+  repository (name: "my-articles", owner: "wenxiangdong") { 
     object(expression: "master:") {
       ... on Tree {
             entries {

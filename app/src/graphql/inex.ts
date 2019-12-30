@@ -1,6 +1,6 @@
 import ApolloClient, {InMemoryCache} from "apollo-boost";
 const endpoint = "https://api.github.com/graphql";
-const personalToken = "82652034ee6d72704e2a89631566dd128ca7b822";
+const personalToken = "61dd5723314414368b4db4daf38774a8ec5bf632";
 
 const graphClient = new ApolloClient({
     uri: endpoint,
