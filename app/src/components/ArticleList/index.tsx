@@ -4,7 +4,9 @@ import { MyArticle } from "../../graphql/schema/types";
 
 const ArticleItem: React.FC<{article: MyArticle}> = ({article}) => {
     return (
-        <div>{article.name}</div>
+        <>
+        <a href={article.url} target="_blank">{article.name}</a>
+        </>
     );
 }
 

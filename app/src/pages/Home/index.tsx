@@ -26,6 +26,9 @@ const pageStyles: CSSProperties = {
 const sectionTitleStyles: CSSProperties = {
     backgroundColor: "transparent"
 };
+const articleListWrapperStyles: CSSProperties = {
+    padding: "8px",
+};
 function Home() {
     // handlers
     const handleJumpToOtherWebsite = (url: string | undefined) => {
@@ -58,7 +61,9 @@ function Home() {
             </div>
             <SectionTitle title={"我的应用"} style={sectionTitleStyles} />
             <SectionTitle title={"我的文章"} style={sectionTitleStyles} />
-            <ArticleList />
+            <div style={articleListWrapperStyles}>
+                <ArticleList />
+            </div>
             {/*背景*/}
             <ShootingStars style={{opacity: 0.8}}/>
         </div>

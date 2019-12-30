@@ -3,6 +3,7 @@ export type MyArticleQueryResult = QueryResult<Array<MyArticle>>
 export interface MyArticle {
     oid: string;
     name: string;
-    type: "blob" | "tree"
+    type: "blob" | "tree";
+    url: string;
 }
 
