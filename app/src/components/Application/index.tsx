@@ -5,7 +5,7 @@ import {ApplicationType, IApplication} from "../../hooks/use-application-info";
 import webIcon from "./Chrome.png";
 import androidIcon from "./Android.png";
 import miniIcon from "./mini.png";
-import {cardStyles, HELP_TEXT_COLOR, PRIMARY_COLOR} from "../../styles";
+import {PRIMARY_COLOR} from "../../styles";
 import qrCodeIcon from "./qr-code.png";
 import ImageUtils from "../FullScreenImage";
 

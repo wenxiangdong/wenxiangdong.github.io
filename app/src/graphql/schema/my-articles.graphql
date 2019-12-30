@@ -1,0 +1,13 @@
+query { 
+  repository (name: "hhhh", owner: "wenxiangdong") { 
+    object(expression: "master:") {
+      ... on Tree {
+            entries {
+                oid
+                name
+                type
+            }
+        }
+    }
+  }
+}

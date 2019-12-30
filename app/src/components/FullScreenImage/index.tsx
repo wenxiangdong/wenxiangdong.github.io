@@ -13,7 +13,7 @@ const FullScreenImage= ({src = "", onClose }) => {
     };
     return (
         <div style={coverStyles} onClick={onClose}>
-            <img src={src} style={imageStyle}/>
+            <img src={src} style={imageStyle} alt="图片加载失败" />
         </div>
     );
 };

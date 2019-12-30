@@ -15,7 +15,7 @@ const Icon: React.FC<{ size?: number, color?: string, type: string }> = ({
                 setModule(res);
             })
             .catch(console.error);
-    }, []);
+    }, [type]);
     // @ts-ignore
     const Icon = module && module.default;
     return Icon ? <Icon size={size} color={color}/> : null;
