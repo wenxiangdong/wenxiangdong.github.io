@@ -5,9 +5,6 @@ import UserInfoCard from "../../components/UserInfoCard";
 import Icon from "../../components/icons/Icon";
 import {useContactInfo} from "../../hooks/use-contact-info";
 import ShootingStars from "../../components/ShootingStars";
-import Application from "../../components/Application";
-import ArticleList from "../../components/ArticleList";
-import {IApplication} from "../../hooks/use-application-info";
 import useHtmlTitle from "../../hooks/use-html-title";
 
 
@@ -62,7 +59,7 @@ function Home() {
             <SectionTitle title={"我的应用"} style={sectionTitleStyles} />
             <SectionTitle title={"我的文章"} style={sectionTitleStyles} />
             <div style={articleListWrapperStyles}>
-                <ArticleList />
+                
             </div>
             {/*背景*/}
             <ShootingStars style={{opacity: 0.8}}/>
