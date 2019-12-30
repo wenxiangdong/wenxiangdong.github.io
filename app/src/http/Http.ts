@@ -3,14 +3,14 @@ export default class Http {
     private static http: Http;
     public static getInstance(): Http {
         if (!this.http) {
-            this.http = new Http();
+            this.http = new Http("https://wenxiangdong.github.io");
         }
         return this.http;
     }
     private axios: AxiosInstance;
-    private constructor() {
+    private constructor(baseURL: string) {
         this.axios = Axios.create({
-            baseURL: "https://wenxiangdong.github.io"
+            baseURL,
         });
     }
 
@@ -33,5 +33,9 @@ export default class Http {
         } else {
             return res.data as T;
         }
+    }
+
+    public static createHttpInstance(baseURL: string):Http {
+        return new Http(baseURL);
     }
 }
