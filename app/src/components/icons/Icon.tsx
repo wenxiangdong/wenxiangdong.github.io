@@ -8,10 +8,8 @@ const Icon: React.FC<{ size?: number, color?: string, type: string }> = ({
                                                                          }) => {
     const [module, setModule] = useState({});
     useEffect(() => {
-        console.log(type);
         import(`./${type}Icon`)
             .then(res => {
-                console.log(res);
                 setModule(res);
             })
             .catch(console.error);

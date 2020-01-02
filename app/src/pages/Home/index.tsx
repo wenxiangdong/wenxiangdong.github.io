@@ -6,6 +6,7 @@ import Icon from "../../components/icons/Icon";
 import {useContactInfo} from "../../hooks/use-contact-info";
 import ShootingStars from "../../components/ShootingStars";
 import useHtmlTitle from "../../hooks/use-html-title";
+import ArticleList from "../../components/ArticleList";
 
 
 // styles
@@ -26,6 +27,7 @@ const sectionTitleStyles: CSSProperties = {
 const articleListWrapperStyles: CSSProperties = {
     padding: "8px",
 };
+
 function Home() {
     // handlers
     const handleJumpToOtherWebsite = (url: string | undefined) => {
@@ -56,10 +58,10 @@ function Home() {
                     ))
                 }
             </div>
-            <SectionTitle title={"我的应用"} style={sectionTitleStyles} />
+            {/* <SectionTitle title={"我的应用"} style={sectionTitleStyles} /> */}
             <SectionTitle title={"我的文章"} style={sectionTitleStyles} />
             <div style={articleListWrapperStyles}>
-                
+                <ArticleList />
             </div>
             {/*背景*/}
             <ShootingStars style={{opacity: 0.8}}/>

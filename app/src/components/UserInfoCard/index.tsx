@@ -1,7 +1,8 @@
 import React, { useMemo } from "react";
-import {cardStyles, HELP_TEXT_COLOR, PRIMARY_COLOR, whiteSpaceStyles} from "../../styles";
+import {cardStyles, HELP_TEXT_COLOR, PRIMARY_COLOR} from "../../styles";
 import useUserInfo from "../../hooks/use-user-info";
 import ImageUtils from "../FullScreenImage";
+import WhiteSpace from "../WhiteSpace";
 // styles
 const wrapperStyles: React.CSSProperties = {
     padding: "16px",
@@ -81,13 +82,12 @@ const UserInfoCard: React.FC<{style?: React.CSSProperties}> = ({style = {}} = {}
                 <img 
                 alt="头像加载失败"
                 src={userInfo.avatar} 
-                style={{...imageStyles}} 
-                onClick={() => ImageUtils.previewInFullScreen(userInfo.avatar)}/>
+                style={{...imageStyles}}/>
             </div>
             <div style={{width: "36px"}}/>
             <div style={{...textSectionStyles}}>
                 <div style={{...titleStyles}}>{userInfo.name}</div>
-                <div style={{...whiteSpaceStyles({height: 16})}}/>
+                <WhiteSpace />
                 {
                     infoList
                         .filter(info => !!info.value)

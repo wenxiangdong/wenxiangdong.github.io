@@ -1,4 +1,13 @@
 import Axios, {AxiosInstance} from "axios";
+import cache from "../cache";
+
+const qs = (params: object | undefined) => {
+    return params 
+        ?  "?" + Object.entries(params)
+            .map(([key, value]) => `${key}=${value}`)
+            .join("&")
+        : "";
+}
 export default class Http {
     private static http: Http;
     public static getInstance(): Http {
@@ -20,17 +29,29 @@ export default class Http {
      */
     public async request<T>(options: {
         path: string,
-        params?: string,
-        method?: "GET" | "POST"
+        params?: object,
+        method?: "GET" | "POST",
+        cacheOptions?: {
+            timeout: number
+        }
     }): Promise<T> {
+        const {path, params, method = "GET", cacheOptions: {timeout = 0} = {}} = options;
+        /** 先拿cache */
+        const key = path + qs(params);
+        try {
+            const cachedData:T = cache.get<T>(key);
+            return cachedData;
+        } catch (error) {}
+
         const res = await this.axios.request({
-            url: options.path,
-            params: options.params,
-            method: options.method || "GET"
+            url: path,
+            params: params,
+            method: method,
         });
         if (res.status !== 200) {
             throw new Error("请求错误");
         } else {
+            cache.set(key, res.data, {timeout});
             return res.data as T;
         }
     }

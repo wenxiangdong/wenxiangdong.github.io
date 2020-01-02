@@ -1,5 +1,17 @@
 import React from "react";
 import {PRIMARY_COLOR} from "../../styles";
+import styled from "styled-components";
+
+const Wrapper = styled.div`
+    font-size: 18px;
+    padding: 8px;
+    background-color: white;
+`;
+const TagSpan = styled.span`
+    padding: 0 4px;
+    background-color: ${PRIMARY_COLOR};
+    margin-right: 8px;
+`;
 
 const SectionTitle: React.FC<{title: string, style?: React.CSSProperties}> = (
     {
@@ -7,25 +19,11 @@ const SectionTitle: React.FC<{title: string, style?: React.CSSProperties}> = (
         style = {}
     }
 ) => {
-    // styles
-    const defaultStyles: React.CSSProperties = {
-      fontSize: "18px",
-      padding: "8px",
-        // position: "sticky",
-        // top: "0",
-        // zIndex: 10,
-        backgroundColor: "white"
-    };
-    const tagStyles: React.CSSProperties = {
-        padding: "0 4px",
-        backgroundColor: PRIMARY_COLOR,
-        marginRight: "8px"
-    };
   return (
-      <div style={{...defaultStyles, ...style}}>
-          <span style={{...tagStyles}}></span>
+      <Wrapper style={style}>
+          <TagSpan></TagSpan>
           {title}
-      </div>
+      </Wrapper>
   );
 };
 

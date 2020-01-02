@@ -1,6 +1,7 @@
 import React from "react";
 import "./index.css";
-import {HELP_TEXT_COLOR, whiteSpaceStyles} from "../../styles";
+import {HELP_TEXT_COLOR} from "../../styles";
+import WhiteSpace from "../WhiteSpace";
 
 interface IProps {
     title?: string | React.ReactNode;
@@ -52,7 +53,7 @@ const Tile: React.FC<IProps> = ({
             <div style={{...titleStyle}}>
                 {title}
             </div>
-            <div style={{...whiteSpaceStyles({height: 8})}}/>
+            <WhiteSpace style={{height: "8px"}} />
             <div style={{...noteStyle}}>{note}</div>
             <div style={{flex: "1"}}>
                 {children}
