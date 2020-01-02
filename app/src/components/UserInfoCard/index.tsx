@@ -3,42 +3,52 @@ import {cardStyles, HELP_TEXT_COLOR, PRIMARY_COLOR} from "../../styles";
 import useUserInfo from "../../hooks/use-user-info";
 import ImageUtils from "../FullScreenImage";
 import WhiteSpace from "../WhiteSpace";
+import styled from "styled-components";
+import Card from "../Card";
+import { Theme } from "../../hooks/use-theme";
 // styles
-const wrapperStyles: React.CSSProperties = {
+const Wrapper = styled(Card)(props => ({
     padding: "16px",
     width: "500px",
     display: "flex",
-    alignItems: "center"
-};
-const titleStyles: React.CSSProperties = {
-    fontSize: "24px"
-};
-const imageStyles: React.CSSProperties = {
+    alignItems: "center",
+    color: `${(props.theme as Theme).textPrimaryColor}`,
+}));
+const UsernameDiv = styled.div`
+    font-size: 24px;
+`;
+const AvatarImg = styled.img({
     width: "150px",
     height: "150px",
     borderRadius: "50%",
     objectFit: "cover",
-};
-const textSectionStyles: React.CSSProperties = {
-  flex: 1,
-  padding: "16px",
-    textAlign: "right"
-};
+});
+const TextSection = styled.div({
+    flex: 1,
+    padding: "16px",
+    textAlign: "right",
+});
+const ItemLabelSpan = styled.span`
+    margin-right: 8px;
+    color: ${props => (props.theme as Theme).textSecondaryColor};
+`;
+const ItemValueLink = styled.a`
+    text-decoration: none;
+    color: ${props => (props.theme as Theme).textPrimaryColor};
+`;
 // inner components
 const Item: React.FC<{title: string, value: string}> = ({title, value}) => {
     const isLink = ["http://", "https://"].some(item => value && value.startsWith(item));
     return (
         <div>
-            <span style={{marginRight: "8px", color: HELP_TEXT_COLOR}}>{title}</span>
-            {
-                isLink
-                    ? <span><a
-                        style={{textDecoration: "none", color: PRIMARY_COLOR}}
-                        href={value}>
-                        链接
-                    </a></span>
-                    : <span>{value}</span>
-            }
+            <ItemLabelSpan>{title}</ItemLabelSpan>
+            <span>
+                {
+                    isLink
+                    ? <ItemValueLink href={value}>链接</ItemValueLink>
+                    : value
+                }
+            </span>
         </div>
     );
 };
@@ -77,16 +87,15 @@ const UserInfoCard: React.FC<{style?: React.CSSProperties}> = ({style = {}} = {}
     ], [userInfo]);
 
     return (
-        <div style={{...cardStyles(), ...wrapperStyles, ...style}}>
+        <Wrapper style={style}>
             <div>
-                <img 
-                alt="头像加载失败"
-                src={userInfo.avatar} 
-                style={{...imageStyles}}/>
+                <AvatarImg 
+                    alt="头像加载失败"
+                    src={userInfo.avatar}/>
             </div>
             <div style={{width: "36px"}}/>
-            <div style={{...textSectionStyles}}>
-                <div style={{...titleStyles}}>{userInfo.name}</div>
+            <TextSection>
+                <UsernameDiv>{userInfo.name}</UsernameDiv>
                 <WhiteSpace />
                 {
                     infoList
@@ -95,8 +104,8 @@ const UserInfoCard: React.FC<{style?: React.CSSProperties}> = ({style = {}} = {}
                         <Item key={info.title} title={info.title} value={info.value}/>
                     ))
                 }
-            </div>
-        </div>
+            </TextSection>
+        </Wrapper>
     );
 };
 

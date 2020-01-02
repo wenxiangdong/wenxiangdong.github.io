@@ -1,10 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import { Article } from "../../types";
+import { Theme } from "../../hooks/use-theme";
 
 const Wrapper = styled.div`
     padding: 8px;
-    border-bottom: rgba(0,0,0,0.2) 1px dashed;
+    border-bottom: ${props => (props.theme as Theme).borderColor} 1px dashed;
     vertical-align: center;
 
     &:last-child {
@@ -12,19 +13,19 @@ const Wrapper = styled.div`
     }
 
     &:hover {
-        background-color: rgba(0,0,0,0.01);
+        background-color: ${props => (props.theme as Theme).hoverColor};
     }
 `;
 
 const TitleLink = styled.a`
     text-decoration: none;
-    color: rgba(100, 100, 100);
+    color: ${props => (props.theme as Theme).textSecondaryColor};
     font-size: 24px;
     font-weight: 500;
 
     &:hover {
         text-decoration: underline;
-        color: #515a6e;
+        color: ${props => (props.theme as Theme).textPrimaryColor};
     }
 `;
 const Tag = styled.span`
@@ -32,7 +33,7 @@ const Tag = styled.span`
     border-radius: 5px;
     color: ${({color}) => color};
     font-size: 12px;
-    padding: 2px;
+    padding: 4px 6px;
     margin: 0 8px;
 `;
 const COLORS = ['#564FF7', '#F56171', '#F5A623'];

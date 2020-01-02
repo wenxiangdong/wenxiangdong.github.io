@@ -10,25 +10,31 @@ export interface Theme {
     textSecondaryColor: string; 
     borderColor: string;
     starColor: string;
+    hoverColor: string;
 }
 export const DefaultTheme: Theme = {
     backgroundColor: "white",
     pageBackgroundColor: "#ECF5FD66",
     primaryColor: "#2d8cf0",
     textPrimaryColor: "#515a6e",
-    textSecondaryColor: "#808695",
+    textSecondaryColor: "#C9C9C9",
     borderColor: "#dcdee2",
     starColor: "#5f91ff",
+    hoverColor: "rgba(0,0,0,0.1)",
 };
 
 export const DarkTheme: Theme = {
-    backgroundColor: "#282c34",
-    pageBackgroundColor: "#282c34",
+    // backgroundColor: "#282c34",
+    backgroundColor: "#202028",
+    // pageBackgroundColor: "#282c34",
+    pageBackgroundColor: "#202028",
+
     primaryColor: "#2d8cf0",
-    textPrimaryColor: "#ffffff",
-    textSecondaryColor: "#ffffff",
-    borderColor: "#ffffff",
+    textPrimaryColor: "#ffffffdd",
+    textSecondaryColor: "#ffffff55",
+    borderColor: "#ffffff55",
     starColor: "#ff0000",
+    hoverColor: "rgba(255,255,255,0.05)",
 };
 
 export const ThemeContainer = createContainer((defaultTheme?: Theme) => {

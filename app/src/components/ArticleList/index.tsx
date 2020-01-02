@@ -5,7 +5,7 @@ import ArticleItem from "./ArticleItem";
 import withErrorBoundary from "../../hocs/with-error-boundary";
 
 const ListWrapper = styled.div`
-
+    color: ${props => props.theme.textPrimaryColor};
 `;
 const ArticleList: React.FC = () => {
     const {data: articleList, error} = useMyArticles();
