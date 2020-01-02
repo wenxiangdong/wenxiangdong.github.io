@@ -1,15 +1,17 @@
 import React from "react";
 import {PRIMARY_COLOR} from "../../styles";
 import styled from "styled-components";
+import { Theme } from "../../hooks/use-theme";
 
 const Wrapper = styled.div`
     font-size: 18px;
     padding: 8px;
-    background-color: white;
+    background-color: transparent;
+    color: ${props => (props.theme as Theme).textPrimaryColor}
 `;
 const TagSpan = styled.span`
     padding: 0 4px;
-    background-color: ${PRIMARY_COLOR};
+    background-color: ${props => (props.theme as Theme).primaryColor};
     margin-right: 8px;
 `;
 

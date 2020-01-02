@@ -24,7 +24,7 @@ const TitleLink = styled.a`
 
     &:hover {
         text-decoration: underline;
-        color: #333;
+        color: #515a6e;
     }
 `;
 const Tag = styled.span`

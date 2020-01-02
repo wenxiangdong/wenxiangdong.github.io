@@ -10,6 +10,9 @@ const ListWrapper = styled.div`
 const ArticleList: React.FC = () => {
     const {data: articleList, error} = useMyArticles();
 
+    if (error || !articleList || !articleList.length) 
+        return <ListWrapper>无文章</ListWrapper>;
+
     return (
         <ListWrapper>
             {
@@ -22,5 +25,5 @@ const ArticleList: React.FC = () => {
 }
 
 
-export default withErrorBoundary(ArticleList, <ListWrapper>无文章</ListWrapper>);
+export default ArticleList;
 

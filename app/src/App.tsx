@@ -7,6 +7,7 @@ import BreathingButton from "./components/BreathingButton";
 import {HashRouter, Switch, Route, Link} from "react-router-dom";
 import useHtmlTitle from './hooks/use-html-title';
 import {LogContainer} from "./hooks/use-logger";
+import { ThemeProvider } from './hooks/use-theme';
 
 const Home = lazy(() => import("./pages/Home"));
 const Dev = lazy(() => import("./pages/Dev"));
@@ -37,15 +38,17 @@ const Welcome: React.FC = () => {
 const App: React.FC = () => {
   return (
     <LogProvider initialState={process.env.NODE_ENV === "development"}>
-      <Suspense fallback={<div>loading...</div>}>
-        <HashRouter>
-          <Switch>
-            <Route path="/home" component={Home} />
-            <Route path="/dev" component={Dev} />
-            <Route component={Welcome}/>
-          </Switch>
-        </HashRouter>
-      </Suspense>
+      <ThemeProvider>
+        <Suspense fallback={<div>loading...</div>}>
+          <HashRouter>
+            <Switch>
+              <Route path="/home" component={Home} />
+              <Route path="/dev" component={Dev} />
+              <Route component={Welcome}/>
+            </Switch>
+          </HashRouter>
+        </Suspense>
+      </ThemeProvider>
     </LogProvider>
   );
 };
