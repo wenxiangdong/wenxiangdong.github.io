@@ -1,7 +1,5 @@
 import React, { useMemo } from "react";
-import {cardStyles, HELP_TEXT_COLOR, PRIMARY_COLOR} from "../../styles";
 import useUserInfo from "../../hooks/use-user-info";
-import ImageUtils from "../FullScreenImage";
 import WhiteSpace from "../WhiteSpace";
 import styled from "styled-components";
 import Card from "../Card";
@@ -34,7 +32,7 @@ const ItemLabelSpan = styled.span`
 `;
 const ItemValueLink = styled.a`
     text-decoration: none;
-    color: ${props => (props.theme as Theme).textPrimaryColor};
+    color: ${props => (props.theme as Theme).primaryColor};
 `;
 // inner components
 const Item: React.FC<{title: string, value: string}> = ({title, value}) => {

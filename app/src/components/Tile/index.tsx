@@ -1,5 +1,4 @@
 import React from "react";
-import {HELP_TEXT_COLOR} from "../../styles";
 import WhiteSpace from "../WhiteSpace";
 import styled from "styled-components";
 import { Theme } from "../../hooks/use-theme";

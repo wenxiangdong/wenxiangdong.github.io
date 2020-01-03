@@ -1,5 +1,4 @@
 import React from "react";
-import {PRIMARY_COLOR} from "../../styles";
 import styled from "styled-components";
 import { Theme } from "../../hooks/use-theme";
 

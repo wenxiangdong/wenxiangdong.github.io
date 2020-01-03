@@ -1,4 +1,4 @@
-import React, {CSSProperties, useCallback, useContext} from "react";
+import React, { useCallback, useState } from "react";
 import Tile from "../../components/Tile";
 import SectionTitle from "../../components/SectionTitle";
 import UserInfoCard from "../../components/UserInfoCard";
@@ -7,12 +7,13 @@ import {useContactInfo} from "../../hooks/use-contact-info";
 import ShootingStars from "../../components/ShootingStars";
 import useHtmlTitle from "../../hooks/use-html-title";
 import ArticleList from "../../components/ArticleList";
-import {ThemeContainer, Theme} from "../../hooks/use-theme";
-import styled, {ThemeContext, ThemeProvider} from "styled-components";
-import { useContainer } from "unstated-next";
+import ThemeSwitcher from "../../components/ThemeSwitcher";
+import SidePanel, { SidePanelDirections } from "../../components/SidePanel";
+import {Theme} from "../../hooks/use-theme";
+import styled from "styled-components";
 
 
-// styles
+// styled
 const FlexSection = styled.div({
     display: "flex", 
     flexWrap: "wrap", 
@@ -39,6 +40,8 @@ function Home() {
     // hooks
     const {contactInfoList} = useContactInfo();
     useHtmlTitle("文向东的主页");
+
+    const [showPanel, setShowPanel] = useState(false);
 
     return (
         <Page>
@@ -67,6 +70,17 @@ function Home() {
             </ArticleListWrapper>
             {/*背景*/}
             <ShootingStars style={{opacity: 0.8}}/>
+
+            <SidePanel
+                visible={showPanel} 
+                direction={SidePanelDirections.fromRight}
+                onClose={() => setShowPanel(false)}>
+                <ThemeSwitcher/>
+            </SidePanel>
+
+            <button style={{position: "fixed", zIndex: 20, top: "10px"}} onClick={() => setShowPanel(pre => !pre)}>
+                点击
+            </button>
         </Page>
     );
 }

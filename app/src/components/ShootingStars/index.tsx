@@ -6,6 +6,7 @@ const Star = styled.div`
     background: linear-gradient(-45deg, rgba(0, 0, 0, 0), ${props => (props.theme as Theme).starColor});
     /* background: linear-gradient(-45deg, #ffe75f, rgba(0, 0, 255, 0)); */
     filter: drop-shadow(0 0 6px ${props => (props.theme as Theme).starColor});
+    z-index: 2;
 
     &::after, &::before {
         background: linear-gradient(-45deg, rgba(0, 0, 0, 0), ${props => (props.theme as Theme).starColor}, rgba(0, 0, 0, 0));
