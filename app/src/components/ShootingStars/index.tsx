@@ -10,7 +10,7 @@ const Star = styled.div`
 
     &::after, &::before {
         background: linear-gradient(-45deg, rgba(0, 0, 0, 0), ${props => (props.theme as Theme).starColor}, rgba(0, 0, 0, 0));
-        content: "hello";
+        content: "";
         font-size: 20px;
     }
 `;
