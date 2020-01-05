@@ -9,6 +9,7 @@ import useHtmlTitle from "../../hooks/use-html-title";
 import ArticleList from "../../components/ArticleList";
 import ThemeSwitcher from "../../components/ThemeSwitcher";
 import SidePanel, { SidePanelDirections } from "../../components/SidePanel";
+import Setting from "../../components/Setting";
 import {Theme} from "../../hooks/use-theme";
 import styled from "styled-components";
 
@@ -21,7 +22,6 @@ const FlexSection = styled.div({
     boxSizing: "border-box"
 });
 const Page = styled.div`
-    width: 100vw;
     min-height: 100vh;
     box-sizing: border-box;
     background-color: ${(props) => (props.theme as Theme).pageBackgroundColor};
@@ -71,16 +71,7 @@ function Home() {
             {/*背景*/}
             <ShootingStars style={{opacity: 0.8}}/>
 
-            <SidePanel
-                visible={showPanel} 
-                direction={SidePanelDirections.fromRight}
-                onClose={() => setShowPanel(false)}>
-                <ThemeSwitcher/>
-            </SidePanel>
-
-            <button style={{position: "fixed", zIndex: 20, top: "10px"}} onClick={() => setShowPanel(pre => !pre)}>
-                点击
-            </button>
+            <Setting />
         </Page>
     );
 }

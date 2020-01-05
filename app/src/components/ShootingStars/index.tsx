@@ -16,7 +16,6 @@ const Star = styled.div`
 `;
 const ShootingStars: React.FC<{style?: React.CSSProperties}> = ({style = {}}) => {
     const theme = useContext(ThemeContext);
-    console.log("stars", theme);
     return (
         <div className="wrapper" style={{...style}}>
             <div className="night">

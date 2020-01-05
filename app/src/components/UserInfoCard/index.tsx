@@ -43,7 +43,7 @@ const Item: React.FC<{title: string, value: string}> = ({title, value}) => {
             <span>
                 {
                     isLink
-                    ? <ItemValueLink href={value}>链接</ItemValueLink>
+                    ? <ItemValueLink href={value} target="_blank" >链接</ItemValueLink>
                     : value
                 }
             </span>

@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useMemo, useState, useEffect } from "react";
 import styled, {keyframes, css, Keyframes, StyledComponent} from "styled-components";
 import {Theme} from "../../hooks/use-theme";
 import {Animated, AnimationString} from "react-animated-css";
@@ -96,6 +96,16 @@ const SidePanel: React.FC<React.PropsWithChildren<IProps>> = ({
         const nextVisible = !visible;
         return nextVisible ? onOpen?.() : onClose?.();
     }
+
+    /** 阻止滚动 */
+    useEffect(() => {
+        if (visible) {
+            document.body.style.overflow = "hidden";
+        }
+        return () => {
+            document.body.style.overflow = "auto";
+        };
+    }, [visible]);
     
 
     return (

@@ -13,8 +13,8 @@ interface IProps {
 }
 
 // constants
-const SIZE = "200px";
-const PADDING = "16px";
+const SIZE = "160px";
+const PADDING = "8px";
 // styles
 const defaultStyle: React.CSSProperties = {
     width: SIZE,

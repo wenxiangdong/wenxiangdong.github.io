@@ -90,14 +90,14 @@ const ThemeSwitcher: React.FC<React.HTMLAttributes<any>> = () => {
         const nextTheme = themeList.find(theme => theme.id === id);
         nextTheme && setTheme(preTheme => preTheme.id === nextTheme.id ? preTheme : nextTheme.theme);
     }, [currentTheme]);
-    // click body cancle
+    // click body cancel
     useEffect(() => {
-        const handleColseOveraly = (e: MouseEvent) => {
+        const handleCloseOverlay = (e: MouseEvent) => {
             setShowOptions(false);
         }
-        document.body.addEventListener("click", handleColseOveraly);
+        document.body.addEventListener("click", handleCloseOverlay);
         return () => {
-            document.body.removeEventListener("click", handleColseOveraly);
+            document.body.removeEventListener("click", handleCloseOverlay);
         }
     }, []);
     const overlayClassName = classnames(["overlay", {"overlay--active": showOptions}]);
