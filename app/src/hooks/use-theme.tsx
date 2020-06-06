@@ -29,14 +29,14 @@ export const DefaultTheme: Theme = {
   hoverColor: "rgba(0,0,0,0.1)",
   id: ThemeTypes.default,
 };
-const darkColor = "hsl(240,0%,10%)";
+
 export const DarkTheme: Theme = {
-  backgroundColor: darkColor,
-  pageBackgroundColor: "hsl(240,0%,8%)",
+  backgroundColor: "#2c303a",
+  pageBackgroundColor: "#131417",
 
   primaryColor: "#2d8cf0",
-  textPrimaryColor: "rgba(255,255,255,0.8)",
-  textSecondaryColor: "rgba(255,255,255,0.3)",
+  textPrimaryColor: "white",
+  textSecondaryColor: "#c7c9d3",
   borderColor: "#ffffff55",
   starColor: "#ff0000",
   hoverColor: "rgba(255,255,255,0.05)",
