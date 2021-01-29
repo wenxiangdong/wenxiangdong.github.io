@@ -2,9 +2,10 @@ import React from "react";
 import useMyArticles from "../../hooks/use-my-articles";
 import styled from "styled-components";
 import ArticleItem from "./ArticleItem";
+import tw from "twin.macro";
 
 const ListWrapper = styled.div`
-    color: ${props => props.theme.textPrimaryColor};
+    ${tw`text-primary dark:text-primary-light`}
 `;
 const ArticleList: React.FC = () => {
     const {data: articleList, error} = useMyArticles();

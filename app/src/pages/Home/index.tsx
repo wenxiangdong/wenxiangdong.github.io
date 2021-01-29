@@ -11,22 +11,15 @@ import SidePanel, { SidePanelDirections } from "../../components/SidePanel";
 import { Theme } from "../../hooks/use-theme";
 import styled from "styled-components";
 
-// styled
-const FlexSection = styled.div({
-  display: "flex",
-  flexWrap: "wrap",
-  padding: "8px 24px",
-  boxSizing: "border-box",
-});
-const Page = styled.div`
-  min-height: 100vh;
-  box-sizing: border-box;
-  background-color: ${(props) => (props.theme as Theme).pageBackgroundColor};
-  padding: 36px;
-`;
-const ArticleListWrapper = styled.div`
-  padding: 8px;
-`;
+const FlexSection: React.FC = ({children}) => (
+  <div className="flex flex-wrap py-2 px-6 box-border">{children}</div>
+)
+const Page: React.FC = ({children}) => (
+  <div className="min-h-screen box-border p-9 bg-gray-100 dark:bg-gray-900">{children}</div>
+)
+const ArticleListWrapper:React.FC = ({children}) => (
+  <div className="p-2">{children}</div>
+)
 
 function Home() {
   // handlers

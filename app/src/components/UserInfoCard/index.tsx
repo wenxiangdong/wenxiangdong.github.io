@@ -4,55 +4,47 @@ import WhiteSpace from "../WhiteSpace";
 import styled from "styled-components";
 import Card from "../Card";
 import { Theme } from "../../hooks/use-theme";
+import classnames from "classnames";
 // styles
-const Wrapper = styled(Card)(props => ({
-    padding: "16px",
-    width: "500px",
-    display: "flex",
-    alignItems: "center",
-    color: `${(props.theme as Theme).textPrimaryColor}`,
-}));
-const UsernameDiv = styled.div`
-    font-size: 24px;
-`;
-const AvatarImg = styled.img({
-    width: "150px",
-    height: "150px",
-    borderRadius: "50%",
-    objectFit: "cover",
-});
+const Wrapper: React.FC<{ style: React.CSSProperties }> = ({ children, style }) => (
+    <Card
+        style={style}
+        className={classnames(
+            "p-4",
+            "flex items-center",
+            "text-primary dark:text-primary-light"
+        )}>{children}</Card>
+)
 const TextSection = styled.div({
     flex: 1,
     padding: "16px",
     textAlign: "right",
 });
-const ItemLabelSpan = styled.span`
-    margin-right: 8px;
-    color: ${props => (props.theme as Theme).textSecondaryColor};
-`;
-const ItemValueLink = styled.a`
-    text-decoration: none;
-    color: ${props => (props.theme as Theme).primaryColor};
-`;
 // inner components
-const Item: React.FC<{title: string, value: string}> = ({title, value}) => {
+const Item: React.FC<{ title: string, value: string }> = ({ title, value }) => {
     const isLink = ["http://", "https://"].some(item => value && value.startsWith(item));
     return (
         <div>
-            <ItemLabelSpan>{title}</ItemLabelSpan>
+            <span className={classnames(
+                "m-2",
+                "text-secondary dark:text-secondary-light"
+            )}>{title}</span>
             <span>
                 {
                     isLink
-                    ? <ItemValueLink href={value} target="_blank" >链接</ItemValueLink>
-                    : value
+                        ? <a href={value} target="_blank" className={classnames(
+                            "no-underline",
+                            "text-blue-500"
+                        )} >链接</a>
+                        : value
                 }
             </span>
         </div>
     );
 };
-const UserInfoCard: React.FC<{style?: React.CSSProperties}> = ({style = {}} = {}) => {
+const UserInfoCard: React.FC<{ style?: React.CSSProperties }> = ({ style = {} } = {}) => {
 
-    const {userInfo} = useUserInfo();
+    const { userInfo } = useUserInfo();
     const infoList = useMemo(() => [
         {
             title: "真实姓名",
@@ -83,24 +75,28 @@ const UserInfoCard: React.FC<{style?: React.CSSProperties}> = ({style = {}} = {}
             value: userInfo.resume
         }
     ], [userInfo]);
-
     return (
         <Wrapper style={style}>
             <div>
-                <AvatarImg 
+                <img
                     alt="头像加载失败"
-                    src={userInfo.avatar}/>
+                    src={userInfo.avatar}
+                    className={classnames(
+                        "w-40 h-40",
+                        "rounded-full",
+                        "object-cover"
+                    )} />
             </div>
-            <div style={{width: "36px"}}/>
+            <div className="w-8" />
             <TextSection>
-                <UsernameDiv>{userInfo.name}</UsernameDiv>
+                <div className="text-2xl">{userInfo.name}</div>
                 <WhiteSpace />
                 {
                     infoList
                         .filter(info => !!info.value)
                         .map((info) => (
-                        <Item key={info.title} title={info.title} value={info.value}/>
-                    ))
+                            <Item key={info.title} title={info.title} value={info.value} />
+                        ))
                 }
             </TextSection>
         </Wrapper>

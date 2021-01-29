@@ -1,12 +1,7 @@
 .App {
-  text-align: center;
-  width: 100vw;
-  height: 100vh;
-  box-sizing: border-box;
-  background-color: black;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  @apply w-screen h-screen box-border
+  text-center
+  bg-white bg-center bg-no-repeat bg-cover dark:bg-black;
 }
 
 .App-logo {
@@ -18,18 +13,12 @@
 }
 
 .App-header {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(18px + 2vmin);
-  color: white;
+  /* min-height: 100vh; */
+  /* font-size: calc(18px + 2vmin); */
   font-family: "lucida grande", "lucida sans unicode", lucida, helvetica, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
-}
-
-.App-link {
-  color: #61dafb;
+  @apply min-h-screen
+  flex flex-col justify-center items-center 
+  text-3xl text-black dark:text-white;
 }
 
 

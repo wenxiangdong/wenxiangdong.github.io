@@ -1,19 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Theme } from "../../hooks/use-theme";
-
-const Wrapper = styled.div`
-    font-size: 18px;
-    padding: 8px;
-    background-color: transparent;
-    color: ${props => (props.theme as Theme).textPrimaryColor}
-`;
-const TagSpan = styled.span`
-    padding: 0 4px;
-    background-color: ${props => (props.theme as Theme).primaryColor};
-    margin-right: 8px;
-`;
-
+import classnames from "classnames";
 const SectionTitle: React.FC<{title: string, style?: React.CSSProperties}> = (
     {
         title,
@@ -21,10 +9,18 @@ const SectionTitle: React.FC<{title: string, style?: React.CSSProperties}> = (
     }
 ) => {
   return (
-      <Wrapper style={style}>
-          <TagSpan></TagSpan>
+      <div style={style} className={classnames(
+          "text-lg text-primary dark-text-primary-light",
+          "p-2",
+          "bg-transparent"
+      )}>
+          <span className={classnames(
+              "w-4",
+              "m-2 py-0 px-1",
+              "bg-blue-500"
+          )}></span>
           {title}
-      </Wrapper>
+      </div>
   );
 };
 

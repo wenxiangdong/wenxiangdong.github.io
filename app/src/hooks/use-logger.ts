@@ -1,6 +1,6 @@
 import {createContainer, useContainer} from "unstated-next";
 import { useState, useCallback } from "react";
-import moment from "moment";
+import moment from "dayjs";
 
 enum LogTypes {
     info = "info",

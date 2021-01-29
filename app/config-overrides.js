@@ -1,6 +1,11 @@
-const { override, addBabelPlugins } = require('customize-cra');
+const { override, addBabelPlugins, addPostcssPlugins } = require('customize-cra');
 module.exports = override(
     ...addBabelPlugins(
-        "@babel/plugin-proposal-optional-chaining"
+        "@babel/plugin-proposal-optional-chaining",
+        
+    ),
+    addPostcssPlugins(
+        [require("tailwindcss"),
+        require("autoprefixer")]
     )
 );

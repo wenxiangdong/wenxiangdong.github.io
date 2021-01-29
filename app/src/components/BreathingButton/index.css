@@ -1,13 +1,14 @@
-.BB__wrapper {
+/* .BB__wrapper {
     display: inline-block;
     padding: 16px;
-}
+} */
 
 .BB__circle {
-    border: white 2px solid;
-    border-radius: 50%;
+    /* border: transparent 2px solid; */
+    /* border-radius: 50%; */
     animation: breathing ease-in-out 2s infinite;
     cursor: pointer;
+    @apply border-black border-2 border-solid rounded-full dark:border-white
 }
 
 
