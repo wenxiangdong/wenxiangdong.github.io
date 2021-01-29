@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { Theme } from "../../hooks/use-theme";
 import classnames from "classnames";
 const SectionTitle: React.FC<{title: string, style?: React.CSSProperties}> = (
     {

@@ -7,15 +7,12 @@ import { useContactInfo } from "../../hooks/use-contact-info";
 import ShootingStars from "../../components/ShootingStars";
 import useHtmlTitle from "../../hooks/use-html-title";
 import ArticleList from "../../components/ArticleList";
-import SidePanel, { SidePanelDirections } from "../../components/SidePanel";
-import { Theme } from "../../hooks/use-theme";
-import styled from "styled-components";
 
 const FlexSection: React.FC = ({children}) => (
   <div className="flex flex-wrap py-2 px-6 box-border">{children}</div>
 )
 const Page: React.FC = ({children}) => (
-  <div className="min-h-screen box-border p-9 bg-gray-100 dark:bg-gray-900">{children}</div>
+  <div className="min-h-screen box-border p-2 sm:p-4 md:p-9 bg-gray-100 dark:bg-gray-900">{children}</div>
 )
 const ArticleListWrapper:React.FC = ({children}) => (
   <div className="p-2">{children}</div>
@@ -30,8 +27,6 @@ function Home() {
   // hooks
   const { contactInfoList } = useContactInfo();
   useHtmlTitle("文向东的主页");
-
-  const [showPanel, setShowPanel] = useState(false);
 
   return (
     <Page>
@@ -51,7 +46,6 @@ function Home() {
           />
         ))}
       </FlexSection>
-      {/* <SectionTitle title={"我的应用"} style={sectionTitleStyles} /> */}
       <SectionTitle title={"我的文章"} />
       <ArticleListWrapper>
         <ArticleList />

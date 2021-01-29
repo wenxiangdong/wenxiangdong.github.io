@@ -3,7 +3,6 @@ import useUserInfo from "../../hooks/use-user-info";
 import WhiteSpace from "../WhiteSpace";
 import styled from "styled-components";
 import Card from "../Card";
-import { Theme } from "../../hooks/use-theme";
 import classnames from "classnames";
 // styles
 const Wrapper: React.FC<{ style: React.CSSProperties }> = ({ children, style }) => (
@@ -11,8 +10,9 @@ const Wrapper: React.FC<{ style: React.CSSProperties }> = ({ children, style }) 
         style={style}
         className={classnames(
             "p-4",
-            "flex items-center",
-            "text-primary dark:text-primary-light"
+            "flex flex-col items-center",
+            "text-primary dark:text-primary-light",
+            "sm:flex-row"
         )}>{children}</Card>
 )
 const TextSection = styled.div({
@@ -77,16 +77,15 @@ const UserInfoCard: React.FC<{ style?: React.CSSProperties }> = ({ style = {} } 
     ], [userInfo]);
     return (
         <Wrapper style={style}>
-            <div>
-                <img
-                    alt="头像加载失败"
-                    src={userInfo.avatar}
-                    className={classnames(
-                        "w-40 h-40",
-                        "rounded-full",
-                        "object-cover"
-                    )} />
-            </div>
+            <img
+                alt="头像加载失败"
+                src={userInfo.avatar}
+                className={classnames(
+                    "w-40 h-40",
+                    "rounded-full",
+                    "object-cover",
+                    "self-start sm:self-center"
+                )} />
             <div className="w-8" />
             <TextSection>
                 <div className="text-2xl">{userInfo.name}</div>

@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import { Article } from "../../types";
-import { Theme } from "../../hooks/use-theme";
 import classnames from "classnames";
 import tw from "twin.macro";
 
@@ -42,7 +41,6 @@ const ArticleItem: React.FC<IProps> = ({article}) => {
                 <span style={{fontSize: "2em"}}>{article.name[0]}</span>
                 {article.name.slice(1)}
             </a>
-            <span>&emsp;&emsp;</span>
             {
                 article.category.map((cate, index) => (
                     <Tag key={index} color={COLORS[index % COLORS.length]} >{cate}</Tag>

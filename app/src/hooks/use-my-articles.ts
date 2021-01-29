@@ -32,8 +32,8 @@ const PATH = "/repos/wenxiangdong/my-articles/contents";
 // const PATH = "/repos/wenxiangdong/hhhh/contents";
 const TIMEOUT = 5 * 60 * 1000;
 
-export default function (): responseInterface<Article[], Error> {
-  const { data, ...rest } = useGithubApi<GithubContentItem[]>(PATH, {
+export default function () {
+  const { data, error, ...rest } = useGithubApi<GithubContentItem[]>(PATH, {
     timeout: TIMEOUT,
   });
   const [articleList, setArticleList] = useState<Article[]>([]);
@@ -73,6 +73,6 @@ export default function (): responseInterface<Article[], Error> {
   }, [data]);
   return {
     data: articleList,
-    ...rest,
+    error
   };
 }

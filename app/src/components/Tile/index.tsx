@@ -1,7 +1,6 @@
 import React from "react";
 import WhiteSpace from "../WhiteSpace";
 import styled from "styled-components";
-import { Theme } from "../../hooks/use-theme";
 import tw from "twin.macro";
 import classnames from "classnames";
 import Card from "../Card";
@@ -19,7 +18,7 @@ const Wrapper = styled(Card).attrs({
     className: classnames(
         "transition-transform",
         "transform origin-center hover:scale-105 hover:shadow-lg",
-        "relative w-40 h-40 m-2 p-2",
+        "relative w-full sm:w-40 sm:h-40 sm:mx-2 my-2 p-2",
         "flex flex-col",
         "no-underline cursor-pointer",
         "break-all",
