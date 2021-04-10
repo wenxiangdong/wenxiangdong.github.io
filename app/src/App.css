@@ -1,24 +1,9 @@
-.App {
-  @apply w-screen h-screen box-border
-  text-center
-  bg-white bg-center bg-no-repeat bg-cover dark:bg-black;
-}
-
 .App-logo {
   height: 40vmin;
   pointer-events: none;
   border-radius: 50%;
   user-select: none;
   box-shadow: rgba(255,0,0,0.5) 0 5px 20px 5px;
-}
-
-.App-header {
-  /* min-height: 100vh; */
-  /* font-size: calc(18px + 2vmin); */
-  font-family: "lucida grande", "lucida sans unicode", lucida, helvetica, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
-  @apply min-h-screen
-  flex flex-col justify-center items-center 
-  text-3xl text-black dark:text-white;
 }
 
 

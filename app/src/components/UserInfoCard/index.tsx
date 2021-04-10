@@ -70,15 +70,15 @@ const UserInfoCard: React.FC<{ style?: React.CSSProperties }> = ({ style = {} } 
             title: "公司",
             value: userInfo.company
         },
-        {
-            title: "简历",
-            value: userInfo.resume
-        }
+        // {
+        //     title: "简历",
+        //     value: userInfo.resume
+        // }
     ], [userInfo]);
     return (
         <Wrapper style={style}>
             <img
-                alt="头像加载失败"
+                alt="头像"
                 src={userInfo.avatar}
                 className={classnames(
                     "w-40 h-40",

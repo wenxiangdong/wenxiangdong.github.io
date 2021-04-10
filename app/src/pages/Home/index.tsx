@@ -7,14 +7,16 @@ import { useContactInfo } from "../../hooks/use-contact-info";
 import ShootingStars from "../../components/ShootingStars";
 import useHtmlTitle from "../../hooks/use-html-title";
 import ArticleList from "../../components/ArticleList";
+import { ToolConfigs } from "../Tools/tool-data";
+import { Link } from "react-router-dom";
 
-const FlexSection: React.FC = ({children}) => (
-  <div className="flex flex-wrap py-2 px-6 box-border">{children}</div>
+const FlexSection: React.FC = ({ children }) => (
+  <div className="box-border flex flex-wrap px-6 py-2">{children}</div>
 )
-const Page: React.FC = ({children}) => (
-  <div className="min-h-screen box-border p-2 sm:p-4 md:p-9 bg-gray-100 dark:bg-gray-900">{children}</div>
+const Page: React.FC = ({ children }) => (
+  <div className="box-border min-h-screen p-2 bg-gray-100 sm:p-4 md:p-9 dark:bg-gray-900">{children}</div>
 )
-const ArticleListWrapper:React.FC = ({children}) => (
+const ArticleListWrapper: React.FC = ({ children }) => (
   <div className="p-2">{children}</div>
 )
 
@@ -46,10 +48,22 @@ function Home() {
           />
         ))}
       </FlexSection>
-      <SectionTitle title={"我的文章"} />
+      {/* <SectionTitle title={"我的文章"} />
       <ArticleListWrapper>
         <ArticleList />
-      </ArticleListWrapper>
+      </ArticleListWrapper> */}
+      <SectionTitle title="小工具" />
+      <FlexSection>
+        {
+          ToolConfigs.map(item => (
+            <Link key={item.link} to={item.link}>
+              <Tile
+                title={item.title}
+                note={item.desc} />
+            </Link>
+          ))
+        }
+      </FlexSection>
       {/*背景*/}
       <ShootingStars style={{ opacity: 0.8 }} />
     </Page>

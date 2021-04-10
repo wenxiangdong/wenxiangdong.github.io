@@ -8,7 +8,6 @@
     /* border-radius: 50%; */
     animation: breathing ease-in-out 2s infinite;
     cursor: pointer;
-    @apply border-black border-2 border-solid rounded-full dark:border-white
 }
 
 
