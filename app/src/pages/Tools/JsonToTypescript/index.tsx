@@ -62,7 +62,7 @@ export default (props: IProps) => {
             <div className="text-lg">结果</div>
             <button
               className="px-2 text-white bg-blue-500"
-              onClick={() => navigator.clipboard.writeText(tsResult).then(() => prompt("复制成功"))}>
+              onClick={() => navigator.clipboard.writeText(tsResult).then(() => alert("复制成功"))}>
               复制
               </button>
           </div>
