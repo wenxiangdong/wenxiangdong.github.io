@@ -1,0 +1,26 @@
+---
+
+---
+
+<div
+  class:list={[
+    "card",
+    "transition-transform",
+    "transform origin-center hover:scale-105 hover:shadow-lg",
+    "relative w-full sm:w-40 sm:h-40 sm:mx-2 my-2 p-2",
+    "flex flex-col",
+    "no-underline cursor-pointer",
+    "break-all",
+    "overflow-y-auto",
+  ]}
+>
+  <div class="text-lg text-primary dark:text-primary-light">
+    <slot name="title" />
+  </div>
+  <div class="text-sm text-secondary dark:text-secondary-light">
+    <slot name="description" />
+  </div>
+  <div class="absolute right-2 bottom-2">
+    <slot name="icon" />
+  </div>
+</div>

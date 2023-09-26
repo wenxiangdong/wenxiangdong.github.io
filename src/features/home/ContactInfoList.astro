@@ -1,0 +1,16 @@
+---
+import { Fragment } from "astro/jsx-runtime";
+import Tile from "./Tile.astro";
+import contactInfo from "./contact-info.json";
+import Icon from "@/components/icons/Icon.astro";
+---
+
+{
+  contactInfo.map((item) => (
+    <Tile>
+      <span slot="title">{item.type}</span>
+      <span slot="description">{item.value}</span>
+      <Icon slot="icon" type={item.icon as any} />
+    </Tile>
+  ))
+}

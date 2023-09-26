@@ -1,0 +1,56 @@
+---
+import CommonLayout from "@/layouts/CommonLayout.astro";
+import { Image } from "astro:assets";
+import logo from "@/images/logo.jpg";
+const motto = "我有痛苦和渴望";
+---
+
+<CommonLayout>
+  <style>
+    .App-logo {
+      box-shadow: rgba(255, 0, 0, 0.5) 0 5px 20px 5px;
+    }
+    .Home__motto {
+      -webkit-box-reflect: below 0px -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+    }
+    .BB__circle {
+      animation: breathing ease-in-out 2s infinite;
+    }
+
+    @keyframes breathing {
+      0% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.2;
+        transform: scale(1.3, 1.3);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1, 1);
+      }
+    }
+  </style>
+  <div
+    class="box-border w-screen h-screen text-center bg-white bg-center bg-no-repeat bg-cover dark:bg-black"
+  >
+    <header
+      class="flex flex-col justify-center items-center min-h-screen text-3xl text-black dark:text-white"
+    >
+      <Image
+        src={logo}
+        class="App-logo w-40vmin h-40-vmin rounded-full pointer-events-none select-none"
+        alt="logo"
+      />
+      <p class="Home__motto mb-12">{motto}</p>
+      <a href="/home">
+        <div class="BB__wrapper inline-block p-4">
+          <div
+            class="BB__circle cursor-pointer border-black border-2 border-solid rounded-full dark:border-white w-8 h-8"
+          >
+          </div>
+        </div>
+      </a>
+    </header>
+  </div>
+</CommonLayout>

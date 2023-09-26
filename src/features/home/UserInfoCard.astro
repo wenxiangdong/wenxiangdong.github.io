@@ -1,0 +1,90 @@
+---
+import { Image } from "astro:assets";
+import userInfo from'./user-info.json';
+const infoList = [
+  {
+    title: "真实姓名",
+    value: userInfo.actualName,
+  },
+  {
+    title: "英文名",
+    value: userInfo.englishName,
+  },
+  {
+    title: "性别",
+    value: userInfo.gender,
+  },
+  {
+    title: "出生",
+    value: userInfo.birthday,
+  },
+  {
+    title: "大学",
+    value: userInfo.school,
+  },
+  {
+    title: "公司",
+    value: userInfo.company,
+  },
+];
+---
+
+<style></style>
+
+<div
+  class:list={[
+    "card",
+    "p-4",
+    "flex flex-col items-center",
+    "text-primary dark:text-primary-light",
+    "sm:flex-row",
+  ]}
+>
+  <Image
+    alt="头像"
+    src={userInfo.avatar}
+    width="160"
+    height="160"
+    class:list={[
+      "mr-8",
+      "w-40 h-40",
+      "rounded-full",
+      "object-cover",
+      "self-start sm:self-center",
+    ]}
+  />
+  <div class="textSection">
+    <div class="text-2xl">{userInfo.name}</div>
+    {
+      infoList
+        .filter((info) => !!info.value)
+        .map(({ title, value }) => {
+          const isLink = ["http://", "https://"].some(
+            (item) => value && value.startsWith(item)
+          );
+          return (
+            <div>
+              <span
+                class:list={["m-2", "text-secondary dark:text-secondary-light"]}
+              >
+                {title}
+              </span>
+              <span>
+                {isLink ? (
+                  <a
+                    href={value}
+                    target="_blank"
+                    class:list={["no-underline", "text-blue-500"]}
+                  >
+                    链接
+                  </a>
+                ) : (
+                  value
+                )}
+              </span>
+            </div>
+          );
+        })
+    }
+  </div>
+</div>

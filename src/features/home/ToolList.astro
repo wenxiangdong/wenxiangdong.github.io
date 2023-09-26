@@ -1,0 +1,27 @@
+---
+import Tile from "./Tile.astro";
+
+const ToolConfigs = [
+  {
+    title: "Json2Ts",
+    desc: "根据json转化出对应的typescript定义",
+    link: "/tool/JsonToTypeScript",
+  },
+  {
+    title: "下班倒计时",
+    desc: "还有多久下班？？？",
+    link: "/tool/CountDownWorkTime",
+  },
+];
+---
+
+{
+  ToolConfigs.map(({ title, desc, link }) => (
+    <a class="no-underline" href={link}>
+      <Tile>
+        <span slot="title">{title}</span>
+        <span slot="description">{desc}</span>
+      </Tile>
+    </a>
+  ))
+}

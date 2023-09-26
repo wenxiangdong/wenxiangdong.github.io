@@ -1,0 +1,26 @@
+---
+import { getCollection } from "astro:content";
+const allBlogs = await getCollection("blog");
+const COUNT = 5;
+---
+
+<style>
+  .title {
+    margin: 1rem 0;
+  }
+</style>
+{
+  allBlogs.slice(0, COUNT).map((item) => (
+    <a href={`/blog/${item.slug}`} class="block my-2">
+      <span class="title text-primary dark:text-primary-light">
+        {item.data.title}
+      </span>
+      {item.data.tags.map((tag) => (
+        <span class="text-secondary dark:text-secondary-light text-sm mx-1 break-all">
+          {tag}
+        </span>
+      ))}
+    </a>
+  ))
+}
+<a href="/blog/all" class="text-blue-500">所有文章 →</a>

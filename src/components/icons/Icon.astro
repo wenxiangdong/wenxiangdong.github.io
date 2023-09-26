@@ -1,0 +1,20 @@
+---
+import type { IconProps, IconType } from "./IconProps";
+import IconGithub from "./IconGithub.astro";
+import IconWechat from "./IconWechat.astro";
+import IconQQ from "./IconQQ.astro";
+import IconOutlook from "./IconOutlook.astro";
+interface Props extends IconProps {
+  type: IconType;
+}
+const { type, ...props } = Astro.props;
+const IconMap: Record<IconType, any> = {
+  Github: IconGithub,
+  Wechat: IconWechat,
+  Outlook: IconOutlook,
+  QQ: IconQQ,
+};
+const IconComponent = IconMap[type];
+---
+
+<IconComponent {...props} />
