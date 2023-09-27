@@ -1,0 +1,49 @@
+---
+import BlogLayout from "@/layouts/BlogLayout.astro";
+import { getCollection } from "astro:content";
+const allBlogs = await getCollection("blog");
+---
+
+<BlogLayout title="所有文章">
+  <div slot="article">
+    {
+      allBlogs.map((item) => (
+        <a
+          class:list={[
+            "block",
+            "my-6 pb-4",
+            "border-b border-gray-200 dark:border-gray-500",
+            "no-underline",
+          ]}
+          href={`/blog/${item.slug}`}
+          transition:name={item.id}
+        >
+          <div
+            class:list={[
+              "text-xl text-primary dark:text-primary-light",
+              "mb-2",
+            ]}
+          >
+            {item.data.title}
+          </div>
+          <div>
+            {item.data.tags.map((tag) => (
+              <span
+                class:list={[
+                  "mr-2 px-2 py-1",
+                  "rounded-sm",
+                  "text-sm",
+                  "text-primary text-opacity-60 dark:text-primary-light dark:text-opacity-50",
+                  "bg-opacity-50 bg-gray-300",
+                  "dark:bg-opacity-10 dark:bg-slate-100",
+                ]}
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        </a>
+      ))
+    }
+  </div>
+</BlogLayout>

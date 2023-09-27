@@ -13,22 +13,20 @@ const flexSectionClass = "box-border flex flex-wrap px-6 py-2";
 <CommonLayout>
   <BackgroundShootingStar />
 
-  <div class="page">
-    <SectionTitle>个人信息</SectionTitle>
-    <div class={flexSectionClass}>
-      <UserInfoCard />
-    </div>
-    <SectionTitle>社交信息</SectionTitle>
-    <div class={flexSectionClass}>
-      <ContactInfoList />
-    </div>
-    <SectionTitle>小工具</SectionTitle>
-    <div class={flexSectionClass}>
-      <ToolList />
-    </div>
-    <SectionTitle>文章</SectionTitle>
-    <div class="px-6">
-      <BlogList />
-    </div>
+  <SectionTitle>个人信息</SectionTitle>
+  <div class={flexSectionClass}>
+    <UserInfoCard />
+  </div>
+  <SectionTitle>社交信息</SectionTitle>
+  <div class={flexSectionClass}>
+    <ContactInfoList />
+  </div>
+  <SectionTitle>小工具</SectionTitle>
+  <div class={flexSectionClass}>
+    <ToolList />
+  </div>
+  <SectionTitle>文章</SectionTitle>
+  <div class="px-6">
+    <BlogList />
   </div>
 </CommonLayout>

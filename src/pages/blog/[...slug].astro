@@ -16,8 +16,31 @@ interface Props {
 // 2. For your template, you can get the entry directly from the prop
 const { entry } = Astro.props;
 const { Content, headings } = await entry.render();
+const title = entry.data.title;
+const tags = entry.data.tags;
 ---
 
-<BlogLayout title={entry.data.title}>
-  <Content />
+<style>
+  .title::after {
+    content: none;
+  }
+</style>
+<BlogLayout title={title}>
+  <div slot="article">
+    <div transition:name={entry.id}>
+      <h1 class:list={["mb-4", "text-5xl font-bold title", "title"]}>
+        {title}
+      </h1>
+      <div class="mb-2">
+        {
+          tags.map((tag) => (
+            <span class="mx-2 border border-current py-1 px-2 rounded">
+              {tag}
+            </span>
+          ))
+        }
+      </div>
+    </div>
+    <Content />
+  </div>
 </BlogLayout>

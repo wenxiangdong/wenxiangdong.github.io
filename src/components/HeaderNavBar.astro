@@ -1,0 +1,37 @@
+---
+const menuList = [
+  { href: "/home", label: "首页" },
+  { href: "/blog", label: "文章" },
+];
+const pathname = Astro.url.pathname;
+---
+
+<style></style>
+<header
+  class:list={[
+    "px-8 py-4",
+    "flex flex-row items-center justify-end",
+    "sticky top-0 left-0 z-10",
+    "bg-gray-50 dark:bg-gray-800",
+  ]}
+>
+  <div class="flex items-center">
+    {
+      menuList.map((item) => (
+        <a href={item.href} class="no-underline">
+          <div
+            class:list={[
+              pathname === item.href
+                ? "text-primary dark:text-primary-light"
+                : "text-secondary dark:text-secondary-light",
+              "mx-4",
+              "hover:text-primary hover:dark:text-primary-light",
+            ]}
+          >
+            {item.label}
+          </div>
+        </a>
+      ))
+    }
+  </div>
+</header>

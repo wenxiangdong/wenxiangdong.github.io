@@ -36,7 +36,7 @@ export default () => {
   const [tsResult, setTsResult] = useState("");
   const [jsonInput, setJsonInput] = useState("");
   return (
-    <div className="flex flex-col w-screen h-screen text-gray-800 bg-gray-50 dark:bg-gray-800 dark:text-green-50">
+    <div className="flex flex-col h-screen text-gray-800 bg-gray-50 dark:bg-gray-800 dark:text-green-50">
       <h1 className="m-4 text-2xl">JSON转Typescript</h1>
       <div className="flex overflow-hidden flex-col flex-1 md:flex-row">
         <div className="flex relative flex-col flex-1 p-8 m-8 bg-white rounded-md shadow dark:bg-gray-700">

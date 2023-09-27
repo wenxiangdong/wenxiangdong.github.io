@@ -7,6 +7,6 @@
     @apply box-border rounded-md bg-white dark:bg-gray-700
   }
   .page {
-    @apply box-border p-2 min-h-screen bg-gray-100 sm:p-4 md:p-9 dark:bg-gray-900;
+    @apply box-border p-2 bg-gray-100 sm:p-4 md:p-9 dark:bg-gray-900;
   }
 }
