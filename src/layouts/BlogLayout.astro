@@ -23,11 +23,57 @@ const { title } = Astro.props;
         margin: auto;
       }
     </style>
+    <style is:global>
+      h1#目录 {
+        opacity: 0.5;
+        font-size: 1.8rem;
+        margin-bottom: 0;
+      }
+      h1#目录::after {
+        content: none;
+      }
+      h1#目录::before {
+        cursor: pointer;
+        content: "🞡";
+        margin-right: 0.2rem;
+      }
+      h1#目录[data-active="true"]::before {
+        content: "🞨";
+      }
+      h1#目录 + ul {
+        height: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: all .3s ease;
+      }
+      h1#目录[data-active="true"] + ul {
+        max-height: 999999999px;
+        height: auto;
+      }
+    </style>
   </head>
   <body class="bg-gray-100 dark:bg-gray-900">
-    <HeaderNavBar/>
+    <HeaderNavBar />
     <article class="page">
       <slot name="article" />
     </article>
+    <script>
+      window.onload = () => {
+        const categoryH1Ele = document.querySelector("h1#目录");
+        if (categoryH1Ele) {
+          categoryH1Ele.addEventListener("click", (e) => {
+            const target = e.currentTarget;
+            if (!target) {
+              return;
+            }
+            if (target.dataset.active) {
+              delete target.dataset.active;
+            } else {
+              target.dataset.active = true;
+            }
+          });
+        }
+      };
+    </script>
   </body>
 </html>
