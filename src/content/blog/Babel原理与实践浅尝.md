@@ -302,7 +302,7 @@ const visitor = {
 2. 有些组件/脚本在不同的区域有不同的需求/业务/逻辑，例如广告位在cn和sg有不同的请求和UI结构
 3. ZONE变量在编译代码时会注入。
 
-通常情况我们会使用 [`process.env.ZONE](http://process.env.ZONE) ===  “cn”`这类代码来判断，但是这导致代码变得复杂且丑陋，考虑以下方案：
+通常情况我们会使用 `process.env.ZONE ===  “cn”`这类代码来判断，但是这导致代码变得复杂且丑陋，考虑以下方案：
 
 1. 将不同区域的代码分开写在不同的文件中，并且使用一个统一文件作为接口，举例 `./hello/index.js` 作为接口/默认实现，`./hello/index.{cn|sg|va}.js` 作为区域的异化实现。
 2. 使用时，只需要导入接口文件`./hello`,构建/编译时会自动替换成相应的区域实现代码
@@ -324,7 +324,7 @@ exports.default = declare(({ types }, opts) => {
 module.exports = exports["default"];
 ```
 
-1. 由于我们需要修改的是导入语句，那我们需要实现`visitor`的`ImportDeclaration`方法
+2. 由于我们需要修改的是导入语句，那我们需要实现`visitor`的`ImportDeclaration`方法
 
 ```jsx
 visitor: {
@@ -335,7 +335,7 @@ visitor: {
 
 ```
 
-1. 逻辑很简单，我们已经假定了只能从`./xxx`的形式导入，并且区域异化的代码也都在`xxx`目录下，那只需要将`./xxx`改写成 `./xxx/index.{cn|sg|va}.js`，并且判断是否存在对应区域的异化文件
+3. 逻辑很简单，我们已经假定了只能从`./xxx`的形式导入，并且区域异化的代码也都在`xxx`目录下，那只需要将`./xxx`改写成 `./xxx/index.{cn|sg|va}.js`，并且判断是否存在对应区域的异化文件
 
 ```jsx
 ImportDeclaration(path) {
@@ -353,7 +353,7 @@ ImportDeclaration(path) {
   },
 ```
 
-1. 我们并不希望每个导入文件都这样处理，可以通过插件options来传入一个include参数，以glob形式来确定哪些文件需要处理
+4. 我们并不希望每个导入文件都这样处理，可以通过插件options来传入一个include参数，以glob形式来确定哪些文件需要处理
 
 ```jsx
 // .babelrc
@@ -377,7 +377,7 @@ ImportDeclaration(path) {
 }
 ```
 
-1. 我们的插件已经写完了，现存使用以下文件
+5. 我们的插件已经写完了，现存使用以下文件
 
 ```jsx
 |-- src
