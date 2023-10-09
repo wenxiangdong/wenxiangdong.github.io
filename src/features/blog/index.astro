@@ -16,7 +16,6 @@ const allBlogs = await getCollection("blog");
             "no-underline",
           ]}
           href={`/blog/${item.slug}`}
-          transition:name={item.id}
         >
           <div
             class:list={[
