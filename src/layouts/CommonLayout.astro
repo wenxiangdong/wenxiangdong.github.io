@@ -1,5 +1,6 @@
 ---
 import "@/styles/global.css";
+import MetaViewport from "./MetaViewport.astro";
 
 interface Props {
   title?: string;
@@ -12,8 +13,7 @@ const { title } = Astro.props;
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
+    <MetaViewport />
     <title>{title || "文向东的主页"}</title>
   </head>
   <body class="page">

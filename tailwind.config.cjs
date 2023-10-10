@@ -12,6 +12,9 @@ module.exports = {
         "primary-light": "#ffffff",
         "secondary-light": "#c7c9d3",
       },
+      backgroundColor: {
+        page: "rgb(var(--color-bg-page) / <alpha-value>)",
+      },
       spacing: {
         ...Array.from(Array(20)).reduce(
           (res, _, index) => ({

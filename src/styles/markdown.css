@@ -1148,6 +1148,11 @@ a {
   word-break: break-all;
 }
 
+li {
+  word-break: break-all;
+  word-wrap: break-word;
+}
+
 /* A block-level image should have a total top and bottom margin of 2em.
 It is always wrapped in a paragraph with 1.2em vertical margin, hence we
 add 0.8 here */

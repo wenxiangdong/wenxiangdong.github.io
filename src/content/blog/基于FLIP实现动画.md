@@ -2,6 +2,7 @@
 title: 基于FLIP实现动画
 tags: ["动画", "javascript", "FLIP"]
 ---
+# 目录
 
 > 💡 本文将叙述如何使用FLIP技术，React Hooks和Web Animation API来实现丝滑的动画
 
