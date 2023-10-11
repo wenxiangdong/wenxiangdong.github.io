@@ -1,0 +1,120 @@
+---
+import "@/styles/global.css";
+import "@/styles/poem.css";
+import MetaViewport from "./MetaViewport.astro";
+const { title } = Astro.props;
+const colors = [
+  { name: "剑锋紫", value: "#3e3841" },
+  { name: "靛青", value: "#1661ab" },
+  { name: "蜻蜓蓝", value: "#3b818c" },
+  { name: "苍绿", value: "#223e36" },
+  { name: "淡茧黄", value: "#f9d770" },
+  { name: "藕荷", value: "#edc3ae" },
+  { name: "淡桃红", value: "#f6cec1" },
+];
+---
+
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <MetaViewport />
+    <title>{title || "诗词集"}</title>
+    <style>
+      body {
+        --bg-color: #3e3841;
+      }
+    </style>
+    <script>
+      import { backgroundColorStore } from "@/stores/background-color";
+      const BG_COLOR_KEY = "--bg-color";
+
+      // 监听状态变化
+      backgroundColorStore.subscribe((s) => {
+        document.body.style.setProperty(BG_COLOR_KEY, s.value);
+      });
+      window.onload = () => {
+        document.body.style.setProperty(
+          BG_COLOR_KEY,
+          backgroundColorStore.getState().value
+        );
+        // 颜色变更组件
+        const trigger: HTMLDivElement | null =
+          document.querySelector(".triggerColor");
+        const dialog: HTMLDialogElement | null =
+          document.querySelector(".dialogColor");
+        const options =
+          document.querySelectorAll<HTMLDivElement>(".color-item");
+
+        trigger?.addEventListener("click", () => {
+          dialog?.showModal();
+        });
+        dialog?.addEventListener("click", (e) => {
+          const closestItem = (e.target as HTMLElement).closest(
+            ".dialog__body"
+          );
+          if (!closestItem) {
+            dialog.close();
+          }
+        });
+
+        options.forEach((op) => {
+          op.addEventListener("click", (e) => {
+            const color = (e.currentTarget as HTMLDivElement).dataset.color;
+            if (color) {
+              backgroundColorStore.setState({ value: color });
+            }
+          });
+        });
+      };
+    </script>
+  </head>
+  <body class="page writing-vrl bg-[var(--bg-color)] transition-colors">
+    <dialog
+      class:list={[
+        "dialogColor",
+        "p-4",
+        "bg-[var(--bg-color)]",
+        "shadow-md shadow-slate-100",
+        "rounded-md outline-none",
+        "backdrop:bg-black backdrop:bg-opacity-0"
+      ]}
+    >
+      <div class="dialog__body">
+        <div class="text-gray-100 text-2xl ml-4">选择背景色</div>
+        {
+          colors.map((color) => (
+            <div
+              class:list={[
+                "color-item",
+                "text-gray-100 text-opacity-40 hover:text-opacity-100",
+                "m-4 ps-2",
+                "text-lg",
+                "border-s-4",
+                "cursor-pointer",
+                "transition-colors",
+              ]}
+              style={`border-color:${color.value}`}
+              data-color={color.value}
+            >
+              {color.name}
+            </div>
+          ))
+        }
+      </div>
+    </dialog>
+    <slot />
+    <div
+      class:list={[
+        "triggerColor",
+        "fixed bottom-4 right-4",
+        "w-8 h-8",
+        "rounded-full",
+        "bg-[var(--bg-color)]",
+        "shadow shadow-white",
+        "cursor-pointer",
+      ]}
+    >
+    </div>
+  </body>
+</html>

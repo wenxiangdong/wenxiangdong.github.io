@@ -21,3 +21,12 @@
     }
   }
 }
+
+@layer utilities {
+  .writing-vrl {
+    writing-mode: vertical-rl;
+  }
+  .writing-vlr {
+    writing-mode: vertical-lr;
+  }
+}
