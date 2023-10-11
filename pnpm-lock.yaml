@@ -14,9 +14,6 @@ dependencies:
   '@fontsource/long-cang':
     specifier: ^5.0.7
     version: 5.0.7
-  '@fontsource/zhi-mang-xing':
-    specifier: ^5.0.7
-    version: 5.0.7
   astro:
     specifier: ^3.1.2
     version: 3.1.2
@@ -781,10 +778,6 @@ packages:
 
   /@fontsource/long-cang@5.0.7:
     resolution: {integrity: sha512-eRdBLq1+PtV2eB3T5hNqmK5LRtmpOu4GXRv+xpeiP1REHwbSZCHGVN4HxfsZ3GX6QaUvqGxFhdTZBFgr1PTadA==}
-    dev: false
-
-  /@fontsource/zhi-mang-xing@5.0.7:
-    resolution: {integrity: sha512-MTILnrHjxDILk1pwNY+zqizz5AVBfxGuoIdACPaPdkpNVPS4IYSuuFmYTlP/cDnVDrhgnI+Ijb3pSXBP9/KSRw==}
     dev: false
 
   /@jridgewell/gen-mapping@0.3.3:
