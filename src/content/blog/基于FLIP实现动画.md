@@ -1,6 +1,7 @@
 ---
 title: 基于FLIP实现动画
 tags: ["动画", "javascript", "FLIP"]
+slug: flip-animation-in-react
 ---
 # 目录
 

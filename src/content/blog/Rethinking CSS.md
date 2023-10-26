@@ -1,6 +1,7 @@
 ---
 title: 'Rethinking CSS'
 tags: ['css']
+slug: rethink-css
 ---
 
 > 💡 Atomic CSS 原子化CSS

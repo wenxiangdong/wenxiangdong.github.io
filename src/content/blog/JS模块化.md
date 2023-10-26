@@ -1,6 +1,7 @@
 ---
 title: 'JS模块化'
 tags: ['js', 'module']
+slug: js-modules
 ---
 # 目录
 # 上古时期

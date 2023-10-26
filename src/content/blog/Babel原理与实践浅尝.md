@@ -1,6 +1,7 @@
 ---
 title: Babel原理与实践浅尝
 tags: [babel, plugin]
+slug: babel-principles-and-practices
 ---
 
 # 目录
