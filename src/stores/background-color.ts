@@ -3,13 +3,6 @@ import { persist } from "zustand/middleware";
 type StoreValue = {
   value: string;
 };
-export const backgroundColorStore = createStore(
-  persist<StoreValue>(
-    () => ({
-      value: "",
-    }),
-    {
-      name: "BackgroundColor",
-    }
-  )
-);
+export const backgroundColorStore = createStore<StoreValue>(() => ({
+  value: "",
+}));
