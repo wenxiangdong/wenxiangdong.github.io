@@ -1,32 +1,33 @@
 import dayjs from "dayjs";
-import { useEffect, useState } from "preact/hooks";
+
 import dayjsDuration from "dayjs/plugin/duration";
 import classNames from "classnames";
-import styles from  "./CountDownWorkTime.module.css";
+import styles from "./CountDownWorkTime.module.css";
+import { For, createEffect, createSignal } from "solid-js";
 dayjs.extend(dayjsDuration);
 
 type Status = "init" | "playing" | "ended";
 const WORK_TIME_IN_SEC = 8 * 60 * 60;
 
 export default () => {
-  const [status, setStatus] = useState<Status>("init");
+  const [status, setStatus] = createSignal<Status>("init");
   return (
-    <div className="overflow-hidden relative p-2">
-      <h1 className="mt-2 mb-8 text-3xl">下班倒计时</h1>
-      <div className="flex flex-1 justify-center items-center">
-        {status === "init" && (
-          <button className={styles.button} onClick={() => setStatus("playing")}>
+    <div class="overflow-hidden relative p-2">
+      <h1 class="mt-2 mb-8 text-3xl">下班倒计时</h1>
+      <div class="flex flex-1 justify-center items-center">
+        {status() === "init" && (
+          <button class={styles.button} onClick={() => setStatus("playing")}>
             上班
           </button>
         )}
-        {status === "playing" && (
+        {status() === "playing" && (
           <Clock duration={WORK_TIME_IN_SEC} onEnd={() => setStatus("ended")} />
         )}
-        {status === "ended" && (
+        {status() === "ended" && (
           <div
-            className={classNames(
+            class={classNames(
               "px-4 py-2 text-8xl font-extrabold rounded text-primary dark:text-primary-light",
-              styles.gradientText,
+              styles.gradientText
             )}
           >
             下班不积极，思想有问题！
@@ -44,14 +45,11 @@ const Clock = ({
   duration: number;
   onEnd: () => void;
 }) => {
-  const renderDot = (active: boolean, key: any) => {
+  const renderDot = (active: boolean) => {
     return (
       <div
-        key={key}
-        className={classNames(
-          "my-2 border-current rounded-full w-6 h-6 border text-green-600 opacity-60 transition-all",
-          active && "bg-current"
-        )}
+        class="my-2 border-current rounded-full w-6 h-6 border text-green-600 opacity-60 transition-all"
+        classList={{ "bg-current": active }}
       />
     );
   };
@@ -61,15 +59,15 @@ const Clock = ({
       .slice(-LEN)
       .split("");
     return (
-      <div className="flex flex-col mx-2">
-        {bits.map((bit, index) => renderDot(bit === "1", index))}
+      <div class="flex flex-col mx-2">
+        <For each={bits}>{(bit) => renderDot(bit === "1")}</For>
       </div>
     );
   };
-  const [secondsLeft, setSecondsLeft] = useState(duration);
+  const [secondsLeft, setSecondsLeft] = createSignal(duration);
 
   // 倒计时
-  useEffect(() => {
+  createEffect(() => {
     let last = Date.now();
     let _secondLeft = duration;
     const checkTime = () => {
@@ -90,22 +88,22 @@ const Clock = ({
       setTimeout(checkTime, 1000);
     };
     setTimeout(checkTime, 1000);
-  }, []);
+  });
 
-  const timeStr = dayjs.duration(secondsLeft * 1000).format("HH:mm:ss");
-  const parts = timeStr.split(":");
+  const timeStr = () => dayjs.duration(secondsLeft() * 1000).format("HH:mm:ss");
+  const parts = () => timeStr().split(":");
 
   return (
     <div>
-      <div className="flex">
-        {parts.map((part) => (
-          <div className="flex mx-2">{part.split("").map(renderDigit)}</div>
-        ))}
+      <div class="flex">
+        <For each={parts()}>
+          {(part) => (
+            <div class="flex mx-2">{part.split("").map(renderDigit)}</div>
+          )}
+        </For>
       </div>
-      <div className="flex justify-evenly mt-4 font-mono text-xl text-center text-opacity-80 text-primary dark:text-primary-light">
-        {timeStr.split("").map((bit, index) => (
-          <span key={index}>{bit}</span>
-        ))}
+      <div class="flex justify-evenly mt-4 font-mono text-xl text-center text-opacity-80 text-primary dark:text-primary-light">
+        <For each={timeStr().split("")}>{(bit) => <span>{bit}</span>}</For>
       </div>
     </div>
   );

@@ -1,5 +1,4 @@
-
-import { useState } from "preact/hooks";
+import { createSignal } from "solid-js";
 const jsonToTypescript = (json: string) => {
   let obj;
   try {
@@ -33,39 +32,39 @@ const jsonToTypescript = (json: string) => {
   }
 }
 export default () => {
-  const [tsResult, setTsResult] = useState("");
-  const [jsonInput, setJsonInput] = useState("");
+  const [tsResult, setTsResult] = createSignal("");
+  const [jsonInput, setJsonInput] = createSignal("");
   return (
-    <div className="flex flex-col h-screen text-gray-800 bg-gray-50 dark:bg-gray-800 dark:text-green-50">
-      <h1 className="m-4 text-2xl">JSON转Typescript</h1>
-      <div className="flex overflow-hidden flex-col flex-1 md:flex-row">
-        <div className="flex relative flex-col flex-1 p-8 m-8 bg-white rounded-md shadow dark:bg-gray-700">
-          <div className="flex flex-row justify-between mb-2 w-full">
-            <div className="text-lg">输入JSON</div>
+    <div class="flex flex-col h-screen text-gray-800 bg-gray-50 dark:bg-gray-800 dark:text-green-50">
+      <h1 class="m-4 text-2xl">JSON转Typescript</h1>
+      <div class="flex overflow-hidden flex-col flex-1 md:flex-row">
+        <div class="flex relative flex-col flex-1 p-8 m-8 bg-white rounded-md shadow dark:bg-gray-700">
+          <div class="flex flex-row justify-between mb-2 w-full">
+            <div class="text-lg">输入JSON</div>
             <button
-              className="px-2 text-white bg-blue-500"
-              onClick={() => setTsResult(jsonToTypescript(jsonInput))}>
+              class="px-2 text-white bg-blue-500"
+              onClick={() => setTsResult(jsonToTypescript(jsonInput()))}>
               转换
               </button>
           </div>
           <textarea
-            className="flex-1 p-2 w-full bg-gray-50 dark:bg-gray-600"
+            class="flex-1 p-2 w-full bg-gray-50 dark:bg-gray-600"
             rows={10}
-            value={jsonInput}
+            value={jsonInput()}
             onChange={e => setJsonInput(e?.currentTarget?.value)} />
         </div>
-        <div className="flex overflow-hidden relative flex-col flex-1 p-8 m-8 bg-white rounded-md shadow dark:bg-gray-700">
+        <div class="flex overflow-hidden relative flex-col flex-1 p-8 m-8 bg-white rounded-md shadow dark:bg-gray-700">
 
-          <div className="flex flex-row justify-between mb-2 w-full">
-            <div className="text-lg">结果</div>
+          <div class="flex flex-row justify-between mb-2 w-full">
+            <div class="text-lg">结果</div>
             <button
-              className="px-2 text-white bg-blue-500"
-              onClick={() => navigator.clipboard.writeText(tsResult).then(() => alert("复制成功"))}>
+              class="px-2 text-white bg-blue-500"
+              onClick={() => navigator.clipboard.writeText(tsResult()).then(() => alert("复制成功"))}>
               复制
               </button>
           </div>
-          <div className="overflow-y-auto flex-1 p-2 w-full whitespace-pre-wrap bg-gray-50 dark:bg-gray-600">
-            {tsResult}
+          <div class="overflow-y-auto flex-1 p-2 w-full whitespace-pre-wrap bg-gray-50 dark:bg-gray-600">
+            {tsResult()}
           </div>
         </div>
       </div>

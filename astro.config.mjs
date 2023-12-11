@@ -1,7 +1,8 @@
 import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
-import preact from "@astrojs/preact";
 import remarkToc from "remark-toc";
+
+import solidJs from "@astrojs/solid-js";
 
 // https://astro.build/config
 export default defineConfig({
@@ -10,14 +11,14 @@ export default defineConfig({
     shikiConfig: {
       // theme: 'css-variables',
       theme: "dark-plus",
-      langs: ["json", "shell", "typescript", "javascript"],
+      langs: ["json", "shell", "typescript", "javascript"]
     },
-    remarkPlugins: [[remarkToc, { heading: "目录", maxDepth: 2 }]],
+    remarkPlugins: [[remarkToc, {
+      heading: "目录",
+      maxDepth: 2
+    }]]
   },
-  integrations: [
-    tailwind({
-      applyBaseStyles: false,
-    }),
-    preact(),
-  ],
+  integrations: [tailwind({
+    applyBaseStyles: false
+  }), solidJs()]
 });
