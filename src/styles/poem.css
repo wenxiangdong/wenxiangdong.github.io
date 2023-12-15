@@ -33,3 +33,20 @@ p {
   @apply text-white text-opacity-80 text-xl;
   margin-block: 0.5em;
 }
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+h1, p {
+  animation-timeline: view(x);
+  animation-fill-mode: both;
+  animation-name: appear;
+  animation-direction: reverse;
+  animation-duration: 1ms;
+}
