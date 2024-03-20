@@ -11,14 +11,22 @@ export default defineConfig({
     shikiConfig: {
       // theme: 'css-variables',
       theme: "dark-plus",
-      langs: ["json", "shell", "typescript", "javascript"]
+      langs: ["json", "shell", "typescript", "javascript", "tsx", "jsx", "css"],
     },
-    remarkPlugins: [[remarkToc, {
-      heading: "目录",
-      maxDepth: 2
-    }]]
+    remarkPlugins: [
+      [
+        remarkToc,
+        {
+          heading: "目录",
+          maxDepth: 2,
+        },
+      ],
+    ],
   },
-  integrations: [tailwind({
-    applyBaseStyles: false
-  }), solidJs()]
+  integrations: [
+    tailwind({
+      applyBaseStyles: false,
+    }),
+    solidJs(),
+  ],
 });

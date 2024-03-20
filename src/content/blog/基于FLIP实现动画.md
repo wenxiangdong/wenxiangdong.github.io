@@ -96,7 +96,7 @@ function App() {
 
 这时我们添加数据，不会看到有任何动画效果，只是简单的重绘一闪而过。
 
-![图片](/blog-assets/FLIP_Jun-05-2020_20-01-19.gif)
+![图片](./blog-assets/FLIP_Jun-05-2020_20-01-19.gif)
 
 为了实现元素位移的路径动画，我们可以使用一个自定义hook来编写逻辑。这里命名为`useFLIP`，代码如下：
 
@@ -195,7 +195,7 @@ const Item = ({ value }) => {
 ```
 
 最终效果如下：
-![图片](/blog-assets/FLIP_Jun-05-2020_20-24-53.gif)
+![图片](./blog-assets/FLIP_Jun-05-2020_20-24-53.gif)
 
 # 总结
 

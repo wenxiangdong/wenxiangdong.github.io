@@ -10,10 +10,10 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/solid-js": "^3.0.2",
-    "@astrojs/tailwind": "^5.0.0",
+    "@astrojs/solid-js": "^4.0.1",
+    "@astrojs/tailwind": "^5.1.0",
     "@fontsource/long-cang": "^5.0.7",
-    "astro": "^3.1.2",
+    "astro": "^4.5.5",
     "classnames": "^2.3.2",
     "dayjs": "^1.11.10",
     "preact": "^10.6.5",
