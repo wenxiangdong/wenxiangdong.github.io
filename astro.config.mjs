@@ -11,7 +11,7 @@ export default defineConfig({
     shikiConfig: {
       // theme: 'css-variables',
       theme: "dark-plus",
-      langs: ["json", "shell", "typescript", "javascript", "tsx", "jsx", "css"],
+      langs: ["json", "shell", "typescript", "javascript", "tsx", "jsx", "css", "html"],
     },
     remarkPlugins: [
       [
