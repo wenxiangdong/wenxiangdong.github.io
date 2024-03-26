@@ -20,6 +20,7 @@ h1:not(:first-of-type) {
 blockquote {
   quotes: "\201C""\201D""\2018""\2019";
   margin-block: 2em;
+  font-size: 0.75rem;
 }
 blockquote p:first-of-type::before {
   content: open-quote;
@@ -32,21 +33,4 @@ blockquote p {
 p {
   @apply text-white text-opacity-80 text-xl;
   margin-block: 0.5em;
-}
-
-@keyframes appear {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-h1, p {
-  animation-timeline: view(x);
-  animation-fill-mode: both;
-  animation-name: appear;
-  animation-direction: reverse;
-  animation-duration: 1ms;
 }
